@@ -1,0 +1,35 @@
+@import url('/public/styles/index.css');
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    color: var(--dark-500);
+    border-bottom: 1px solid var(--dark-100);
+}
+
+.logo img {
+    height: 68px;
+}
+
+.right-links {
+    display: flex;
+    align-items: center;
+
+    font-family: var(--font-two);
+    font-weight: 500;
+    font-size: 1rem;
+}
+.icon {
+    display: inline-flex;
+}
+
+.icon img {
+    height: 24px;
+    margin-right: 28px;
+}
+
+.icon:last-child {
+    margin-right: 0; 
+}

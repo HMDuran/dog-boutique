@@ -1,0 +1,18 @@
+@import url('../index.css');
+
+.banner {
+    background-color: var(--light-500);
+    background-image: url('/public/assets/img/bg/desktop-bg.svg');
+
+    height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 68px;
+}
+
+img {
+    height: 40vh;
+}

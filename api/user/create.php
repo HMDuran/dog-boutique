@@ -29,10 +29,13 @@
 
         // Attempt to create the user
         if ($user->create()) {
+            // Set response code
+            http_response_code(200);
             // User created successfully
             header('Location: ../../apps/views/auth/login.php');
             exit(); 
         } else {
+            http_response_code(400);
             // User creation failed
             echo json_encode(array('message' => 'Failed to create user'));
         }

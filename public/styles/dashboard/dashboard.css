@@ -1,0 +1,52 @@
+@import url('../index.css');
+ 
+.container-dashboard {
+    display: grid;
+    height: 100vh;
+
+    grid-template-areas: 'menu content';
+    grid-template-columns: 200px auto;
+}
+
+.left {
+    grid-area: menu;
+    background-color: var(--brand-color);
+    padding: 20px 30px 0;
+
+    display: flex;
+    flex-direction: column;
+    color: var(--light-100);
+    
+    font-family: var(--font-one);
+}
+
+.logo {
+    height: 80px;
+}
+
+.admin {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.links {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    font-size: 1.1rem;
+}
+
+.links p:hover {
+    cursor: pointer;
+    color: var(--light-900)
+}
+
+.right {
+    grid-area: content;
+    background-color: var(--light-100);
+}
+

@@ -1,0 +1,36 @@
+@import url('../../index.css');
+
+.container {
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    height: 100vh;
+}
+
+.btn {
+    color: var(--light-100);
+    border: 1px solid var(--brand-color);
+    border-radius: 4px;
+    padding: 10px 20px;
+    background-color: var(--brand-color);
+    font-weight: 600;
+
+    width: 200px;
+}   
+
+table, th, td{
+    border: 1px solid var(--dark-100);
+    text-align: center;
+}
+
+th {
+    background-color: var(--brand-color);
+    color: var(--light-100);
+    padding: 10px;
+
+}
+
+

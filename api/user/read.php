@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header('Access-Control-Allow-Methods: POST');
@@ -19,12 +17,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user->email = $_POST['email'];
         $user->password = $_POST['password'];
 
-        if ($user->login()) {
+        $isUserLoggedIn = $user->login();
+
+        if ($isUserLoggedIn) {
+            session_start();
+
+            $userData = $user->getUser();
+
+            $_SESSION['user'] = $userData;
             http_response_code(200);
-            if ($user->role === 'admin') {
+            
+            if ($userData['role'] === 'admin') {
                 header('Location: ../../../../apps/views/dashboard/dashboard.php');
                 exit();
-            } elseif ($user->role === 'customer') {
+            } elseif ($userData['role'] === 'customer') {
                 header('Location: ../../../../apps/views/home/homeUser.php');
                 exit();
             }

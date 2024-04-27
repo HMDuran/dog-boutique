@@ -36,10 +36,35 @@ class User {
                 $this->id = $row['id'];
                 $this->role = $row['role'];
                 
-                return true;
+                unset($row['password']);
+
+                return $row;
             }
         }
         return false;
+    }
+
+    function getUser($id = null) {
+        $query = "SELECT * FROM {$this->table_name} WHERE id = :id LIMIT 0,1";
+
+        $stmt = $this->conn->prepare($query);
+
+        if (!$id) {
+            $stmt->bindParam(':id', $this->id);
+        } else {
+            $stmt->bindParam(':id', $id);
+        }
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            unset($row['password']);
+            return $row;
+        }
+
+        return [];
     }
 
     function create() {

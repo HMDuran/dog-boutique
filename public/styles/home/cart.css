@@ -1,0 +1,17 @@
+table,
+th,
+td {
+    border: 1px solid var(--dark-100);
+    text-align: center;
+}
+
+th {
+    background-color: var(--brand-color);
+    color: var(--light-100);
+    padding: 10px;
+}
+
+.productImage {
+    height: 80px;
+    width: 80px;
+}

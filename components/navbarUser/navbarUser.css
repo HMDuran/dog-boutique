@@ -33,3 +33,19 @@
 .icon:last-child {
     margin-right: 0; 
 }
+
+
+#cart-item-count {
+    position: absolute;
+    top: 20;
+    right: 130;
+    background-color: #8C69E9; 
+    color: #F6F3FE;
+    font-size: 12px;
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

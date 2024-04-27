@@ -1,5 +1,5 @@
 <?php
-Session_start();
+session_start();
 
 $routes = [
     '/home' => 'home',

@@ -1,0 +1,56 @@
+@import url('../index.css');
+
+
+main {
+    background-color: var(--light-200);
+    background-image: url('../../assets/img/bg/desktop-bg.svg');
+    height: 100vh;
+}
+
+.place0rder-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.place0rder-container img {
+    height: 160px;
+    width: 160px;
+}
+
+.text p {
+    text-align: center;
+    color: var(--dark-900);
+    margin-top: 8px;
+    font-size: 1.2rem;
+}
+
+.text .emphasize {
+   font-weight: 600;
+   font-size: 2rem;
+}
+
+hr {
+    width: 360px;
+    margin-top: 20px;
+    color: var(--dark-100);
+
+    margin-bottom: 14px;
+}
+
+.continue-btn {
+    background-color: var(--brand-color);
+    color: var(--light-100);
+    border: 1px solid var(--brand-color);
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    width: 360px;
+}
+
+.continue-btn:hover {
+    background-color: var(--button-hover);
+    cursor: pointer;
+}

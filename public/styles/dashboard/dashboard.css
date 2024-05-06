@@ -1,15 +1,11 @@
 @import url('../index.css');
- 
 .container-dashboard {
-    display: grid;
-    height: 100vh;
-
-    grid-template-areas: 'menu content';
-    grid-template-columns: 200px auto;
+  display: flex;
+  height: 100vh
 }
 
 .left {
-    grid-area: menu;
+    
     background-color: var(--brand-color);
     padding: 20px 30px 0;
 
@@ -18,6 +14,12 @@
     color: var(--light-100);
     
     font-family: var(--font-one);
+    
+}
+
+.right {
+    flex-grow: 1; 
+    overflow-y: auto; 
 }
 
 .logo {
@@ -40,13 +42,28 @@
     font-size: 1.1rem;
 }
 
+.links a{
+    color: var(--light-100);
+}
+
 .links p:hover {
     cursor: pointer;
     color: var(--light-900)
 }
 
 .right {
-    grid-area: content;
+    
     background-color: var(--light-100);
 }
 
+.logout {
+    display: flex;
+    gap: 20px;
+    align-content: center;
+}
+
+.logout img {
+    height: 20px;
+    width: 20px;
+    color: var(--light-100);
+}

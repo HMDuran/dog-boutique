@@ -26,18 +26,14 @@ if($product->name!=null){
         "price" => $product->price,
         "stock" => $product->stock,
         "categoryid" => $product->categoryid,
+        "category_name" => $product->category_name,
     );
-    // set response code - 200 OK
     http_response_code(200);
-    // make it json format
     echo json_encode($product_arr);
 }
   
 else{
-    // set response code - 404 Not found
     http_response_code(404);
-  
-    // tell the user product does not exist
     echo json_encode(array("message" => "Product does not exist."));
 }
 ?>

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -7,7 +9,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 // Include database and object files
-include_once '../../config/database.php';
+include_once '../../config/Database.php';
 include_once '../objects/Product.php';
 
 $database = new Database();
@@ -41,11 +43,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $product->created_at = date('Y-m-d H:i:s');
 
                 if ($product->create()) {
-                    http_response_code(201);
-                    echo json_encode(array("message" => "Product was created."));
+                    $_SESSION['notifications'][] = array("type" => "success", "message" => "Product was created.");
+                    header("Location: ../../apps/views/dashboard/dashboard.php#products");
+                    exit();
                 } else {
-                    http_response_code(503);
-                    echo json_encode(array("message" => "Unable to create product."));
+                    $_SESSION['notifications'][] = array("type" => "error", "message" => "Unable to create product.");
+                    header("Location: ../../apps/views/dashboard/dashboard.php#products");
+                    exit();
                 }
             } else {
                 http_response_code(500);
@@ -64,5 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Method Not Allowed
     http_response_code(405);
     echo json_encode(array("message" => "Method Not Allowed."));
+    exit(); 
 }
 ?>

@@ -18,6 +18,8 @@
             <div class="input">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
+           
+            <a href="/apps/views/auth/forgotPassword.php">Forgot Password?</a>
             </div>
 
             <button type="submit">Login</button>            

@@ -2,7 +2,6 @@
 
 .container {
     padding: 30px;
-
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -33,4 +32,47 @@ th {
 
 }
 
+.description_p {
+    width: 300px;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+
+.notification {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.notification.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.success {
+    background-color: #DFF2BF;
+    color: #4F8A10;
+}
+.error {
+    background-color: #FFBABA;
+    color: #D8000C;
+}
+
+button {
+    color: var(--light-100);
+    border: 1px solid var(--brand-color);
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: var(--brand-color);
+    font-weight: 600;
+    margin: 2px;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    cursor: pointer;
+}
 

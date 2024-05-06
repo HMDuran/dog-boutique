@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/public/styles/auth/otp.css">
+<title>OTP Verification</title>
+
+<div class="container">
+    <div class="card">
+        <img src="/public/assets/img/logo/logov2.svg" alt="logo">
+        <h1>One-Time Password (OTP) Verification</h1>
+        <p>Please enter the One-Time Password (OTP) sent to your email to proceed.</p>
+
+        <form  action="/api/user/verify_otp.php?user_id=<?php echo isset($_GET['user_id']) ? $_GET['user_id'] : ''; ?>" method="POST">
+            <label for="otp">Enter OTP:</label>
+            <input type="text" id="otp" name="otp" required>
+    
+            <button type="submit">Verify OTP</button>
+        </form>
+    </div>
+</div>

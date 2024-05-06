@@ -1,0 +1,112 @@
+main {
+    margin-top: 80px;
+}
+
+table,
+th,
+td {
+    border: 1px solid var(--dark-100);
+    text-align: center;
+}
+
+th {
+    background-color: var(--brand-color);
+    color: var(--light-100);
+    padding: 10px;
+}
+
+.payment-method {
+    padding-top: 40px;
+    color: var(--dark-700)
+}
+
+.payment-box {
+    display: flex;
+
+    gap: 30px;
+}
+
+.payment-box p {
+    border: 1px solid;
+    padding: 10px 30px;
+
+    display: flex;
+    gap: 20px;
+}
+
+.payment-box .green {
+    color:rgb(111, 138, 111);
+}
+
+.payment-box .red {
+    color: rgb(166, 112, 112);
+}
+
+.checkout-name {
+    width: 300px;
+}
+
+.checkout-price {
+    width: 120px;
+}
+
+.productImage {
+    height: 80px;
+    width: 80px;
+}
+
+.order-container {
+    display: flex;
+    gap: 30px;
+}
+
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 70px;
+    justify-content: center;
+}
+
+.vertical-line {
+    border-left: 1px solid var(--dark-100);
+    height: auto;
+}
+
+#placeOrderBtn {
+    padding: 5px 20px;
+    background-color: var(--brand-color);
+    color: var(--light-100);
+    border: 1px solid var(--brand-color);
+    border-radius: 6px;
+
+    width: 300px;
+    cursor: pointer;
+}
+
+#placeOrderBtn:hover {
+    background-color: var(--button-hover);
+}
+
+#placeOrderBtn:active, #placeOrderBtn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.summary h4 {
+    color: var(--dark-700);
+}
+
+
+.summary p {
+    color: var(--dark-700);
+}
+
+.total-amount-checkout {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+span {
+    font-weight: 700;
+}

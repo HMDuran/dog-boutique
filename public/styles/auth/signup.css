@@ -66,6 +66,10 @@ form {
     flex-direction: column;
 }
 
+#firstname, #lastname{
+    width: 190px;
+}
+
 input[type='email'],
 input[type='password'],
 input[type='text'],

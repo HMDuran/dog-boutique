@@ -1,6 +1,21 @@
 <link rel=stylesheet href="/public/styles/dashboard/adminView/viewAllProducts.css"></link>
 
 <div class="container">
+  <div class="notifications-container">
+    <?php 
+    session_start();
+
+    if (isset($_SESSION['notifications']) && is_array($_SESSION['notifications'])) {
+        foreach ($_SESSION['notifications'] as $notification) {
+            $type = $notification['type'];
+            $message = $notification['message'];
+            echo "<script>alert('$message');</script>";
+        }
+
+        unset($_SESSION['notifications']); 
+    }
+    ?>  
+  </div>
   <h2>Product Items</h2>
   
   <!-- Trigger the modal with a button -->
@@ -24,19 +39,19 @@
     <tbody id="productTableBody"></tbody> 
   </table>
 
-   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="modalTitle">Product Item Details</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <form id="productForm"  enctype='multipart/form-data' action="/api/product/create.php" method="POST">
-            <input type="hidden" name="product_id" id="p_id"> 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modalTitle">Product Item Details</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body"> 
+            <form id="productForm" action="/api/product/create.php" enctype='multipart/form-data' method="POST">
+              <input type="hidden" name="product_id" id="p_id"> 
             <div class="form-group">
               <label for="name">Product Name:</label>
               <input type="text" name="name" class="form-control" id="p_name" required>
@@ -67,9 +82,8 @@
             </div>
           </form>
         </div>
-      </div>
-      
+      </div>  
     </div>
-  </div>
 
+  </div>
 </div>

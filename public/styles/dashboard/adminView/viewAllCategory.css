@@ -9,3 +9,54 @@
 
     height: 100vh;
 }
+
+.btn {
+    color: var(--light-100);
+    border: 1px solid var(--brand-color);
+    border-radius: 4px;
+    padding: 10px 20px;
+    background-color: var(--brand-color);
+    font-weight: 600;
+
+    width: 200px;
+}   
+
+table, th, td{
+    border: 1px solid var(--dark-100);
+    text-align: center;
+}
+
+th {
+    background-color: var(--brand-color);
+    color: var(--light-100);
+    padding: 10px;
+}
+
+.notification {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.success {
+    background-color: #DFF2BF;
+    color: #4F8A10;
+}
+.error {
+    background-color: #FFBABA;
+    color: #D8000C;
+}
+
+button {
+    color: var(--light-100);
+    border: 1px solid var(--brand-color);
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: var(--brand-color);
+    font-weight: 600;
+    margin: 2px;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    cursor: pointer;
+}

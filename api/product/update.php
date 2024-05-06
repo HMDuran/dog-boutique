@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
@@ -11,7 +13,7 @@ include_once '../objects/Product.php';
 $database = new Database();
 $db = $database->getConnection();
 
-$product = new Product($db);
+$product = new Product($db); 
  
 // if (!empty($_POST)) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['product_id'])) {
@@ -21,36 +23,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['product_id'])) {
         !empty($_POST['description']) && 
         !empty($_POST['price']) &&
         !empty($_POST['stock']) &&
-        !empty($_POST['categoryid'])
+        !empty($_POST['categoryid']) 
     ) {
-        if (isset($_FILES['image'])) {
-            $uploadDir = '../../uploads/';
-            $fileName = basename($_FILES['image']['name']);
-            $uploadFile = $uploadDir . $fileName;
+        if ($_FILES["image"]["error"] == 0) {
+            $name = $_FILES['image']['name'];
+            $temp = $_FILES['image']['tmp_name'];
 
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
-                $product->image = $fileName;
+            $location = "../../uploads/";
+            $finalImage = $location . $name;
+
+            if (move_uploaded_file($temp, $finalImage)) {
+                $product->id = $_POST['product_id'];
+                $product->name = $_POST['name'];
+                $product->image = $finalImage;
+                $product->description = $_POST['description'];
+                $product->price = $_POST['price'];
+                $product->stock = $_POST['stock'];
+                $product->categoryid = $_POST['categoryid'];
+                $product->updated_at = date('Y-m-d H:i:s');
+
+                if ($product->update()) {
+                    $_SESSION['notifications'][] = array("type" => "success", "message" => "Product was updated.");
+                    header("Location: ../../apps/views/dashboard/dashboard.php#products");
+                    exit();
+                } else {
+                    $_SESSION['notifications'][] = array("type" => "error", "message" => "Unable to update product.");
+                    header("Location: ../../apps/views/dashboard/dashboard.php#products");
+                    exit();
+                }
             } else {
                 http_response_code(500);
-                echo json_encode(array("message" => "Failed to upload image."));
-                exit;
+                echo json_encode(array("message" => "Failed to move uploaded file."));
             }
-        }  
-
-        $product->id = $_POST['product_id']; 
-        $product->name = $_POST['name']; 
-        $product->description = $_POST['description'];
-        $product->price = $_POST['price'];
-        $product->stock = $_POST['stock'];
-        $product->categoryid = $_POST['categoryid']; 
- 
-      
-        if ($product->update()) {
-            http_response_code(200);
-            echo json_encode(array("message" => "Product updated successfully."));
         } else {
             http_response_code(500);
-            echo json_encode(array("message" => "Failed to update product."));
+            echo json_encode(array("message" => "Error uploading file."));
         }
     } else {
         http_response_code(400);

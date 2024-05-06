@@ -26,7 +26,7 @@
                 'description' => $description,
                 'price' => $price,
                 'stock' => $stock,
-                'categoryid' => $categoryid,
+                'category_name' => $category_name,
                 'created_at' => $created_at,
                 'updated_at' => $updated_at
             );

@@ -1,18 +1,18 @@
 <title>Home</title>
 <link rel="stylesheet" href='/public/styles/home/home.css'>
 
-<main>
-   <?php
+<?php
       include $_SERVER['DOCUMENT_ROOT'] . '/components/navbar/navbar.php';
-   ?>
+?>
 
+<main>
    <div class="banner">
       <div class="left">
          <h2>Take Better Care of <span>Your Dog.</span></h2>
          <p>Discover tail-wagging fashion and purr-fect style for your best friend 
             through our online shopping. Explore a great selection of clothes, 
             cozy beds, playful toys, stylish collars, and more!</p>
-         <button>Shop Now</button>
+         <button onclick="location.href='/apps/views/auth/login.php'">Shop Now</button>
       </div>
 
       <div class="right">

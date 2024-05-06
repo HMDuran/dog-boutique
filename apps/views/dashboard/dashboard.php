@@ -13,12 +13,13 @@
 
             <div class="links">
                 <a href="#dashboard" onclick="showDashboard()">Dashboard</a>
-                <a href="#orders" onclick="showOrders()">Orders</a>
                 <a href="#products" onclick="showProductItems()">Products</a>
                 <a href="#category" onclick="showCategory()">Category</a>
-                <a href="#users" onclick="showUsers()">Customers</a>
-                <div>
-                    <a href="/apps/views/home/home.php"><img src='/public/assets/img/icons/log-out.png'>Sign Out</a>
+                <div class="logout">
+                    <a href="/apps/views/home/home.php">
+                        <img src='/public/assets/img/icons/log-out.png'>
+                        Sign Out
+                    </a>
                 </div>
             </div>
         </div>

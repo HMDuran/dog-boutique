@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             http_response_code(200);
             
             if ($userData['role'] === 'admin') {
-                header('Location: ../../../../apps/views/dashboard/dashboard.php');
+                header('Location: ../../../../apps/views/dashboard/dashboard.php#dashboard');
                 exit();
             } elseif ($userData['role'] === 'customer') {
                 header('Location: ../../../../apps/views/home/homeUser.php');

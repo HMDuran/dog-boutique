@@ -1,20 +1,19 @@
-<link rel=stylesheet href="/public/styles/dashboard/adminView/viewDashboard.css"></link>
+<link rel=stylesheet href="/public/styles/dashboard/adminView/viewAllDashboad.css"></link>
  
 <div class="container">
   <h3>Dashboard</h3>
 
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn" style="height:40px" data-toggle="modal" data-target="#myModal">
-    Add Product
-  </button>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="text-center">No.</th>
-        <th class="text-center">Name</th>
-        <th class="text-center" colspan="2">Action</th>
-      </tr>
-    </thead>
-  </table>
+    <div id="main-content" class="allContent-section py-4">
+      <div class="card">
+          <i class="fa fa-th-large mb-2" style="font-size: 70px;"></i>
+          <h4 style="color:white;">Total Categories</h4>
+          <h4 id="totalCategories" style="color:white;"></h4>
+      </div>
+              
+      <div class="card">
+          <i class="fa fa-th mb-2" style="font-size: 70px;"></i>
+          <h4 style="color:white;">Total Products</h4>
+          <h4  id="totalProducts" style="color:white;"></h4>
+      </div>
+    </div>
 </div>

@@ -1,12 +1,16 @@
 @import url('/public/styles/index.css');
 
-.navbar {
+.navbar-user {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 60px;
     color: var(--dark-500);
     border-bottom: 1px solid var(--dark-100);
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: var(--light-100);
 }
 
 .logo img {
@@ -30,10 +34,14 @@
     margin-right: 28px;
 }
 
+.icon img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
 .icon:last-child {
     margin-right: 0; 
 }
-
 
 #cart-item-count {
     position: absolute;
@@ -48,4 +56,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.middle a{
+    font-size: 1.3rem;
+    color: #8C69E9;
 }

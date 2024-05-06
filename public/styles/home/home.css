@@ -1,5 +1,9 @@
 @import url('../index.css');
 
+main {
+    margin-top: 89px;
+}
+
 .banner {
     background-color: var(--light-500);
     background-image: url('/public/assets/img/bg/desktop-bg.svg');
@@ -40,33 +44,47 @@ img {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.productCard:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .productCard img {
    width: 300px;
    height: 300px;
 }
+
 .productCard h3 {
     margin-top: 10px;
     font-size: 18px;
     color: var(--light-900);
 }
+
 .productCard p {
     margin-top: 5px;
     font-size: 14px;
     font-weight: 900;
 }
 
-.viewBtn {
-    padding-top:5px;
+.viewBtnCustom {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 20px;
+    background-color: var(--brand-color);
+    color: var(--light-100);
+    border: none;
+
+    cursor: pointer;
+
+    border-radius: 5px;
 }
 
-a {
-    background-color: transparent !important;
-    border: none !important;
-    color: var(--light-900) !important;
-    padding: 0 !important;
+.viewBtnCustom:hover {
+    background-color: var(--button-hover);
 }
+
 
 .left h2 {
     font-size: 3rem;
@@ -86,7 +104,13 @@ a {
     color: var(--light-100);
     border: 1px solid var(--brand-color);
     border-radius: 8px;
+    cursor: pointer;
 }
+
+.left button:hover {
+    background-color: var(--button-hover);
+}
+
 .left span {
     color: var(--brand-color);
 }
@@ -94,3 +118,4 @@ a {
 .right img {
     height: 360px;
 }
+

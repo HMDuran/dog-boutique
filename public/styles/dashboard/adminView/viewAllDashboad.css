@@ -1,1 +1,25 @@
 @import url('../../index.css');
+
+.container {
+    padding: 50px;
+}
+.allContent-section  {
+    display: flex;
+    gap: 20px;
+    padding-top: 90px;
+}
+
+.card {
+    background-color: #8C69E9;
+    height: 180px;
+    width: 300px;
+
+    align-items: center;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    border-radius: 8px;
+}

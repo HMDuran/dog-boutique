@@ -1,3 +1,16 @@
+main {
+    margin-top: 60px;
+}
+
+.shopping-cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 60px;
+    height: 100vh;
+    width: 100%;
+}
+
 table,
 th,
 td {
@@ -11,7 +24,112 @@ th {
     padding: 10px;
 }
 
+.selectAll {
+    width: 128px;
+}
+
+.images {
+    width: 100px;
+}
+
+.quantity-btn {
+    width: 200px;
+}
+
 .productImage {
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
+}
+
+.input-group {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="number"] {
+    text-align: center;
+    border: 1px solid var(--dark-100);
+    padding: 7px;
+    width: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+input[type='number']:focus {
+    outline: none;  
+    border: 1px solid var(--brand-color)
+}
+
+.input-group-btn .btn {
+    background-color: var(--brand-color);
+    border-color: var(--dark-100);
+}
+
+.input-group-btn .btn:hover {
+    background-color: var(--button-hover);
+    border: none;
+}
+
+input-group-btn button:active, button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+
+    background-color: var(--button-hover) !important;
+}
+
+.deleteCartItemBtn {
+    background-color: var(--brand-color);
+    color: var(--light-100);
+    border: 1px solid var(--dark-100);
+    border-radius: 8px;
+
+    padding: 5px 20px;
+}
+
+.deleteCartItemBtn:active, .deleteCartItemBtn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+
+    background-color: var(--button-hover) !important;
+}
+
+.deleteCartItemBtn:hover {
+    background-color: var(--button-hover);
+    border: 1px solid var(--dark-100);
+    color: var(--light-100);
+}
+
+#totalPrice {
+    text-align: right;
+    justify-content: end;
+}
+
+#totalPrice span {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+#totalPrice button {
+    background-color: var(--brand-color);
+    color: var(--light-100);
+
+    border: 1px solid var(--dark-100);
+    border-radius: 10px;
+
+    padding: 10px 30px;
+    margin-top: 10px;
+
+    cursor: pointer;
+}
+
+#totalPrice button:hover {
+    background-color: var(--button-hover);
+    border: 1px solid var(--dark-100);
+    color: var(--light-100);
 }

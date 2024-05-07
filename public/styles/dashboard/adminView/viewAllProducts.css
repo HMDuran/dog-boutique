@@ -18,9 +18,11 @@
     font-weight: 600;
 
     width: 200px;
-}   
+}
 
-table, th, td{
+table,
+th,
+td {
     border: 1px solid var(--dark-100);
     text-align: center;
 }
@@ -29,7 +31,6 @@ th {
     background-color: var(--brand-color);
     color: var(--light-100);
     padding: 10px;
-
 }
 
 .description_p {
@@ -56,6 +57,7 @@ img {
     background-color: #DFF2BF;
     color: #4F8A10;
 }
+
 .error {
     background-color: #FFBABA;
     color: #D8000C;
@@ -74,5 +76,10 @@ button {
 button:hover {
     background-color: var(--button-hover);
     cursor: pointer;
+}
+
+.flex-this {
+    display: flex;
+    justify-content: space-between;
 }
 

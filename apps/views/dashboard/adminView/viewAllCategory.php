@@ -7,7 +7,7 @@
         foreach ($_SESSION['notifications'] as $notification) {
             $type = $notification['type'];
             $message = $notification['message'];
-            echo "<script>alert('$message');</script>";
+            echo "<script>$.notify('$message', '$type');</script>";
         }
         unset($_SESSION['notifications']); 
     }

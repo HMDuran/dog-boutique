@@ -47,9 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['product_id'])) {
                     header("Location: ../../apps/views/dashboard/dashboard.php#products");
                     exit();
                 } else {
-                    $_SESSION['notifications'][] = array("type" => "error", "message" => "Unable to update product.");
-                    header("Location: ../../apps/views/dashboard/dashboard.php#products");
-                    exit();
+                  http_response_code(503);
+                  echo json_encode(array("message" => "Unable to update product."));
                 }
             } else {
                 http_response_code(500);

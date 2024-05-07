@@ -1,7 +1,7 @@
 @import url('../../index.css');
 
 .container {
-    padding: 50px;
+    padding: 50px 100px;
 }
 .allContent-section  {
     display: flex;
@@ -9,17 +9,42 @@
     padding-top: 90px;
 }
 
-.card {
+.left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.right-side {
+    display: flex;
+    gap: 20px;
+}
+
+.right-side .card {
     background-color: #8C69E9;
-    height: 180px;
+    height: 260px;
     width: 300px;
 
     align-items: center;
-    padding: 20px;
 
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-
     border-radius: 8px;
+
+    padding: 50px 20px;
 }
+
+.right-side .card h3 {
+    font-size: 5rem;
+}
+
+.left-side .card {
+    background-color: #8C69E9;
+    height: 80px;
+    width: 300px;
+    border-radius: 8px;
+
+    padding: 20px;
+    justify-content: center;
+    align-content: center;
+}   
+

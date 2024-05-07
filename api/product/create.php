@@ -47,9 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("Location: ../../apps/views/dashboard/dashboard.php#products");
                     exit();
                 } else {
-                    $_SESSION['notifications'][] = array("type" => "error", "message" => "Unable to create product.");
-                    header("Location: ../../apps/views/dashboard/dashboard.php#products");
-                    exit();
+                    http_response_code(503);
+                    echo json_encode(array("message" => "Unable to create product."));
                 }
             } else {
                 http_response_code(500);
@@ -60,12 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo json_encode(array("message" => "Error uploading file."));
         }
     } else {
-        // Data is incomplete
         http_response_code(400);
         echo json_encode(array("message" => "Unable to create product. Data is incomplete."));
     }
 } else {
-    // Method Not Allowed
     http_response_code(405);
     echo json_encode(array("message" => "Method Not Allowed."));
     exit(); 

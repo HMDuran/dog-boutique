@@ -10,6 +10,7 @@
         public $price;
         public $stock;
         public $categoryid;
+        public $category_nam;
         public $created_at;
         public $updated_at;
 
@@ -33,23 +34,22 @@
             $query = "SELECT
             c.name AS category_name, 
             p.id as p_id, p.name, p.description, p.price, p.stock, p.image, p.categoryid, p.created_at
-        FROM
-            " . $this->table_name . " p
-        LEFT JOIN
-            categories c
-                ON p.categoryid = c.id
-        WHERE
-            p.id = :id
-        LIMIT
-            0,1";
+            FROM
+                " . $this->table_name . " p
+            LEFT JOIN
+                categories c
+                    ON p.categoryid = c.id
+            WHERE
+                p.id = :id
+            LIMIT
+                0,1";
 
             $stmt = $this->conn->prepare( $query );
             $stmt->bindParam(":id", $this->id);
             $stmt->execute();
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            // var_dump($this->id);
-            // var_dump($row);
+            $this->category_name = $row['category_name'];
             $this->id = $row['p_id'];
             $this->name = $row['name'];
             $this->image = $row['image'];
@@ -107,21 +107,19 @@
         }
 
         function update() { 
-            $this->readOne();
             if ($this->name !== null) {
                 $query = "UPDATE " . $this->table_name . "
                         SET
-                            name = :name,
-                            description = :description,
-                            price = :price,
-                            stock = :stock,
-                            categoryid = :categoryid,
-                            image = :image
+                            name=:name,
+                            description=:description,
+                            price=:price,
+                            stock=:stock,
+                            categoryid=:categoryid,
+                            image=:image
                         WHERE
-                            id = :id";
+                            id=:id";
 
                 $stmt = $this->conn->prepare($query);
-
                 
                 $this->name = htmlspecialchars(strip_tags($this->name));
                 $this->image = htmlspecialchars(strip_tags($this->image));
@@ -145,6 +143,20 @@
                 }
             } else {
                 return false; 
+            }
+        }
+
+        function updateStock($product_id, $quantity) {
+            $query = "UPDATE " . $this->table_name . " SET stock = stock - :quantity WHERE id = :product_id";
+
+            $stmt = $this->conn->prepare($query);
+            
+            $stmt->bindParam(':quantity', $quantity);
+            $stmt->bindParam(':product_id', $product_id);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return false;
             }
         }
     } 

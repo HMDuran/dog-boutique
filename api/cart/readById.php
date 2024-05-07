@@ -39,7 +39,8 @@ if (isset($_GET['cartItemIds'])) {
                 "name" => $name,
                 "quantity" => $quantity,
                 "price" => $price,
-                "total_amount" => $total_amount
+                "total_amount" => $total_amount,
+                "product_id" => $product_id
             );
             array_push($items_arr["data"], $item);
         }

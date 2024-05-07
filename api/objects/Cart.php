@@ -177,5 +177,22 @@ class Cart
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
+    function removeItems($ids) {
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+    
+        $query = "DELETE FROM " . $this->table_name . " WHERE id IN ($placeholders)";
+    
+        $stmt = $this->conn->prepare($query);
+    
+        foreach ($ids as $key => $id) {
+            $stmt->bindValue(($key + 1), $id);
+        }
+    
+        if ($stmt->execute()) {
+            return true;
+        }
+    
+        return false;
+    }
 }
 ?>

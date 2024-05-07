@@ -197,6 +197,7 @@ function editProduct(id) {
     fetchProductDetails(id);
     $('#p_id').val(id); 
     $('#modalTitle').text("Update Product"); 
+    $('#upload').text('Update Product');
 
     $('#productForm').attr('action', '/api/product/update.php'); 
     $('#myModal').modal('show'); 
@@ -216,9 +217,9 @@ function fetchCategories() {
                     var row = "<tr>" +
                         "<td>" + count + "</td>" +
                         "<td>" + category.name + "</td>" +
-                        "<td>" +
+                        "<td class='actions'>" +
                         "<button onclick='editCategory(" + category.id + ")'>Edit</button>" +
-                        "<button onclick='deleteCategory(" + category.id + ")'>Delete</button>" +
+                        "<button  onclick='deleteCategory(" + category.id + ")'>Delete</button>" +
                         "</td>" +
                         "</tr>";
                     $("#categoryTableBody").append(row);
@@ -273,6 +274,7 @@ function editCategory(id) {
     fetchCategoryDetails(id);
     $('#c_id').val(id); 
     $('#modalTitle').text("Update Category");
+    $('#upload').text('Update Category');
 
     $('#categoryForm').attr('action', '/api/category/update.php');
     $('#myModal').modal('show');

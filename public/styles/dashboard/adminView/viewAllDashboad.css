@@ -3,6 +3,7 @@
 .container {
     padding: 50px 100px;
 }
+
 .allContent-section  {
     display: flex;
     gap: 20px;
@@ -15,12 +16,16 @@
     gap: 10px;
 }
 
+.left-side p {
+    font-weight: 500;
+}
+
 .right-side {
     display: flex;
     gap: 20px;
 }
 
-.right-side .card {
+.card {
     background-color: #8C69E9;
     height: 260px;
     width: 300px;
@@ -31,20 +36,34 @@
     border-radius: 8px;
 
     padding: 50px 20px;
+    box-shadow: 0 0 10px rgba(47, 4, 45, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 20px rgba(22, 21, 21, 0.2);
 }
 
 .right-side .card h3 {
     font-size: 5rem;
 }
 
-.left-side .card {
+.left-card {
     background-color: #8C69E9;
     height: 80px;
     width: 300px;
     border-radius: 8px;
 
-    padding: 20px;
-    justify-content: center;
-    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }   
+
+.left-card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
 

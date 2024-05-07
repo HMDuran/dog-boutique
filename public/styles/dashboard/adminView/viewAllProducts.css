@@ -63,7 +63,7 @@ img {
     color: #D8000C;
 }
 
-button {
+.actions button {
     color: var(--light-100);
     border: 1px solid var(--brand-color);
     border-radius: 4px;
@@ -73,7 +73,7 @@ button {
     margin: 2px;
 }
 
-button:hover {
+.actions button:hover {
     background-color: var(--button-hover);
     cursor: pointer;
 }

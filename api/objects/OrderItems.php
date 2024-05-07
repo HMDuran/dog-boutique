@@ -32,5 +32,18 @@ class OrderItems {
             return false;
         }
     }
+
+    function deleteOrderItems($orderId) {
+        $query = "DELETE FROM order_items WHERE order_id = :order_id";
+
+        $stmt = $this->conn->prepare($query);
+    
+        $stmt->bindParam(':order_id', $orderId);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
 }
 ?>

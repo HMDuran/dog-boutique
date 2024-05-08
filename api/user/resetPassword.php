@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../config/database.php';
 
 $database = new Database();
@@ -13,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute([$hashed_password, $user_id]);
 
     if ($stmt->rowCount() > 0) {
-        echo "Password reset successful. You can now login with your new password.";
+        $_SESSION['notifications'][] = array("type" => "success", "message" => "Password reset successful. You can now login with your new password.");
         header ("Location: ../../../../apps/views/auth/login.php");
         exit();
     } else {

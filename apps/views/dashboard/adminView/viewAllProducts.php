@@ -12,7 +12,7 @@
         unset($_SESSION['notifications']); 
     }
   ?>
-  <h2>Product Items</h2>
+  <h4>Product Items</h4>
   
   <button type="button" class="btn" style="height:40px" data-toggle="modal" data-target="#myModal">
     Add Product
@@ -21,14 +21,14 @@
   <table id='productTable'>
     <thead>
       <tr>
-        <th>No.</th>
-        <th>Image</th>
-        <th>Name</th>
+        <th class="number">No.</th>
+        <th class="image_product">Image</th>
+        <th class="product_name">Name</th>
         <th>Description</th>
-        <th>Category</th>
-        <th>Stock</th>
-        <th>Price</th>
-        <th>Action</th>
+        <th class="category_name">Category</th>
+        <th class="same">Stock</th>
+        <th class="same">Price</th>
+        <th class="ac">Action</th>
       </tr>
     </thead>
     <tbody id="productTableBody"></tbody> 

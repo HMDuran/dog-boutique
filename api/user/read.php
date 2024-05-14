@@ -35,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit();
             }
         } else {
-            $_SESSION['error_message'] = 'Invalid email or password. Please try again.';
+            $_SESSION['notifications'][] = array("type" => "error", "message" => "Invalid email or password");
             header('Location: ../../../../apps/views/auth/login.php');
             exit();
         }
     } else {
-        $_SESSION['error_message'] = 'You don\'t have an account';
+        $_SESSION['notifications'][] = array("type" => "error", "message" => "You don't have account yet");
         header('Location: ../../../../apps/views/auth/login.php');
         exit();
     }

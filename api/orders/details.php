@@ -16,13 +16,10 @@ $db = $database->getConnection();
 $order = new Orders($db);
 
 if (isset($_SESSION['user'])) {
-    // Set the user's ID
     $order->user_id = $_SESSION['user']['id'];
 
-    // Read order details
     $stmt = $order->readDetails();
 
-    // Check if orders exist
     if ($stmt) {
         $num = $stmt->rowCount();
 
@@ -31,32 +28,25 @@ if (isset($_SESSION['user'])) {
             $order_arr["records"] = array();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                // Extracting variables from $row
                 extract($row);
 
-                // Creating an array with order details
                 $order_item = array(
                     "id" => $id,
                     "first_name" => $first_name,
                     "last_name" => $last_name
                 );
 
-                // Pushing the order item into the records array
                 $order_arr["records"][] = $order_item;
             }
 
-            // Returning the JSON response
             echo json_encode($order_arr);
         } else {
-            // No orders found
             echo json_encode(array("message" => "No orders found."));
         }
     } else {
-        // Error fetching orders
         echo json_encode(array("message" => "Error fetching orders."));
     }
 } else {
-    // User is not authenticated
     echo json_encode(array("message" => "User is not authenticated."));
 }
 ?>

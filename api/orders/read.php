@@ -22,6 +22,10 @@ if ($num > 0) {
         extract($row);
 
         $customer_name = $first_name . ' ' . $last_name;
+        $user_email = $email;
+        $user_phone = $phone_number;
+        $user_address = $delivery_address;
+
         $order_items_arr = array();
 
         $items = explode('<br>', $order_items);
@@ -42,6 +46,11 @@ if ($num > 0) {
             "order_number" => $id,
             "order_date" => $created_at, 
             "customer_name" => $customer_name,
+            "user_info" => array(
+                "email" => $user_email, 
+                "phone" => $user_phone, 
+                "address" => $user_address
+            ),
             "order_items" => $order_items_arr,
             "total_amount" => $total_amount,
             "status" => $status

@@ -88,6 +88,13 @@ input[type='number']:focus {
     border: 2px solid var(--brand-color);
 }
 
+i {
+    color: var(--brand-color);
+    cursor: pointer;
+    margin-left: 368px;
+    margin-top: -28px;
+}
+
 button {
     color: var(--light-100);
     border: 1px solid var(--brand-color);

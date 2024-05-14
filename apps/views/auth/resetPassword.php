@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/public/styles/auth/resetPassword.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
@@ -27,9 +28,11 @@
            
             <label for="new_password">New Password:</label>
             <input type="password" id="new_password" name="new_password" required>
+            <i class="far fa-eye" id="toggleNewPassword"></i>
 
             <label for="confirm_password">Confirm Password:</label>
             <input type="password" id="confirm_password" name="confirm_password" required>
+            <i class="far fa-eye" id="toggleConfirmPassword"></i>
             
             <button type="submit">Reset Password</button>
         </form>
@@ -37,6 +40,26 @@
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleNewPassword = document.querySelector('#toggleNewPassword');
+    const newPassword = document.querySelector('#new_password');
+
+    toggleNewPassword.addEventListener('click', function (e) {
+        const type = newPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        newPassword.setAttribute('type', type);
+        this.classList.toggle('fa-eye-slash');
+    });
+
+    const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
+    const confirmPassword = document.querySelector('#confirm_password');
+
+    toggleConfirmPassword.addEventListener('click', function (e) {
+        const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPassword.setAttribute('type', type);
+        this.classList.toggle('fa-eye-slash');
+    });
+});
+
 function validateForm() {
     var newPassword = document.getElementById("new_password").value;
     var confirmPassword = document.getElementById("confirm_password").value;

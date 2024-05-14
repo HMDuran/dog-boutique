@@ -7,10 +7,11 @@
     <thead>
       <tr>
         <th>No.</th>
-        <th>Order Number</th>
+        <th>User Name</th>
+        <th>User Information</th>
+        <th>Order #</th>
         <th>Order Date</th>
-        <th>Customer Name</th>
-        <th>Oder Items</th> 
+        <th>Order Items</th> 
         <th>Total Amount</th>
         <th>Status</th>
         <th>Action</th>

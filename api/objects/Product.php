@@ -18,7 +18,7 @@
             $this->conn = $db;
         }
 
-        function  read() {
+        function read() {
             $query = "SELECT p.*, c.name AS category_name
                 FROM {$this->table_name} p
                     LEFT JOIN categories c 

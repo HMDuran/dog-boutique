@@ -59,7 +59,7 @@ class Orders {
     }
 
     function readWithItems() {
-        $query = "SELECT o.id, DATE(o.created_at) as created_at, u.first_name, u.last_name, ";
+        $query = "SELECT o.id, DATE(o.created_at) as created_at, u.first_name, u.last_name,  u.email, u.phone_number, u.delivery_address, ";
         $query .= "GROUP_CONCAT(CONCAT(oi.quantity, 'x ', p.name) SEPARATOR '<br>') AS order_items, o.total_amount, o.status ";
         $query .= "FROM orders o ";
         $query .= "LEFT JOIN order_items oi ON o.id = oi.order_id ";

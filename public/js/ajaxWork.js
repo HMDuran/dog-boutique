@@ -10,13 +10,13 @@ function fetchProducts() {
                 $.each(response.data, function (index, product) {
                     var count = index + 1;
                     var row = "<tr>" +
-                        "<td>" + count + "</td>" +
-                        "<td><img src='/uploads/" + product.image + "' alt='" + product.name + "'></td>" +
-                        "<td>" + product.name + "</td>" +
+                        "<td class='align-middle'>" + count + "</td>" +
+                        "<td class='image_p'><img src='/uploads/" + product.image + "' alt='" + product.name + "'></td>" +
+                        "<td class='align-middle'>" + product.name + "</td>" +
                         "<td class='description_p'>" + product.description + "</td>" +
-                        "<td>" + product.category_name + "</td>" +
-                        "<td>" + product.stock + "</td>" +
-                        "<td>₱ " + product.price + "</td>" +
+                        "<td class='align-middle'>" + product.category_name + "</td>" +
+                        "<td class='align-middle'>" + product.stock + "</td>" +
+                        "<td class='align-middle'>₱ " + product.price + "</td>" +
                         "<td class='actions'>" +
                         "<button onclick='editProduct(" + product.id + ")'>Edit</button>" +
                         "<button onclick='deleteProduct(" + product.id + ")'>Delete</button>" +
@@ -215,8 +215,8 @@ function fetchCategories() {
                 $.each(response.records, function (index, category) {
                     var count = index + 1;
                     var row = "<tr>" +
-                        "<td>" + count + "</td>" +
-                        "<td>" + category.name + "</td>" +
+                        "<td class='align-middle'>" + count + "</td>" +
+                        "<td class='cat_name align-middle'>" + category.name + "</td>" +
                         "<td class='actions'>" +
                         "<button onclick='editCategory(" + category.id + ")'>Edit</button>" +
                         "<button  onclick='deleteCategory(" + category.id + ")'>Delete</button>" +
@@ -306,15 +306,38 @@ function fetchOrders() {
                         orderItems += item.quantity + "x " + item.product_name + "<br>";
                     });
 
+                    var userInfo = "<span class='bold-label'>Email: </span>" + order.user_info.email + "<br>" + 
+                                    "<span class='bold-label'>Phone: </span>" + order.user_info.phone + "<br>" + 
+                                    "<span class='bold-label'>Address: </span>" + order.user_info.address + "<br>";
+
+                    var statusClass = "";
+                    switch (order.status.toLowerCase()) {
+                        case "pending":
+                            statusClass = "status-pending";
+                            break;
+                        case "delivered":
+                            statusClass = "status-delivered";
+                            break;
+                        case "processing":
+                            statusClass = "status-processing";
+                            break;
+                        case "shipped":
+                            statusClass = "status-shipped";
+                            break;
+                        default:
+                            statusClass = "";
+                    }
+
                     var row = "<tr>" +
-                        "<td>" + (index + 1) + "</td>" +
-                        "<td>#" + order.id + "</td>" + 
-                        "<td>" + order.order_date + "</td>" + 
-                        "<td>" + order.customer_name + "</td>" +
-                        "<td>" + orderItems + "</td>" +
-                        "<td>₱" + order.total_amount + "</td>" +
-                        "<td>" + order.status + "</td>" +
-                        "<td class='actions'>" +
+                        "<td class='align-middle'>" + (index + 1) + "</td>" +
+                        "<td class='align-middle'>" + order.customer_name + "</td>" +
+                        "<td class='align-middle text-left user-info'>" + userInfo + "</td>" +
+                        "<td class='align-middle'>" + order.id + "</td>" + 
+                        "<td class='align-middle'>" + order.order_date + "</td>" + 
+                        "<td class='align-middle'>" + orderItems + "</td>" +
+                        "<td class='align-middle'>" + order.total_amount + "</td>" +
+                        "<td class='align-middle'><span class='" + statusClass + "'>" + order.status + "</span></td>" +
+                        "<td class='actions align-middle'>" +
                             "<button onclick='editOrder(" + order.id + ")'>Edit</button>" +
                             "<button onclick='deleteOrder(" + order.id + ")'>Delete</button>" +
                         "</td>" +

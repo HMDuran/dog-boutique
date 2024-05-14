@@ -1,9 +1,11 @@
 <title>Login</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css">
 <link rel="stylesheet" href="/public/styles/auth/login.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+
 <main>
 <?php 
     session_start();
@@ -32,11 +34,22 @@
             <div class="input">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
-           
-            <a href="/apps/views/auth/forgotPassword.php">Forgot Password?</a>
+                <i class="far fa-eye" id="togglePassword"></i>
             </div>
+            <a href="/apps/views/auth/forgotPassword.php">Forgot Password?</a>
 
             <button type="submit">Login</button>            
         </form>
     </div>
 </main>
+
+<script>
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+
+  togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+});
+</script>

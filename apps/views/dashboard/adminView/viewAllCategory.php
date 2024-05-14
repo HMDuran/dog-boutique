@@ -12,7 +12,7 @@
         unset($_SESSION['notifications']); 
     }
   ?>
-  <h3>Category Items</h3>
+  <h4>Category Items</h4>
 
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn" style="height:40px" data-toggle="modal" data-target="#myModal">

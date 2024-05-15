@@ -1,11 +1,11 @@
 @import url('../index.css');
+
 .container-dashboard {
   display: flex;
   height: 100vh
 }
 
 .left {
-    
     background-color: var(--brand-color);
     padding: 20px 30px 0;
 
@@ -13,8 +13,12 @@
     flex-direction: column;
     color: var(--light-100);
     
-    font-family: var(--font-one);
-    
+    font-family: var(--font-two);
+}
+
+.admin p {
+    font-family: var(--font-two);
+    font-weight: 600;
 }
 
 .right {

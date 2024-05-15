@@ -7,8 +7,13 @@ main {
     flex-direction: column;
     gap: 20px;
     padding: 60px;
-    height: 100vh;
     width: 100%;
+}
+
+h3 {
+    font-family: var(--font-two);
+    color: var(--dark-900);
+    font-weight: 600;
 }
 
 table,
@@ -16,6 +21,9 @@ th,
 td {
     border: 1px solid var(--dark-100);
     text-align: center;
+    font-family: var(--font-two);
+    border-left: 0;
+    border-right: 0;
 }
 
 th {
@@ -90,6 +98,7 @@ input-group-btn button:active, button:focus {
     border-radius: 8px;
 
     padding: 5px 20px;
+    font-family: var(--font-two);
 }
 
 .deleteCartItemBtn:active, .deleteCartItemBtn:focus {
@@ -126,6 +135,7 @@ input-group-btn button:active, button:focus {
     margin-top: 10px;
 
     cursor: pointer;
+    font-family: var(--font-two);
 }
 
 #totalPrice button:hover {

@@ -33,7 +33,9 @@ img {
 }
 
 h1 {
+    font-family: var(--font-one);
     padding-bottom: 10px;
+    color: var(--dark-900);
 }
 
 p {
@@ -88,6 +90,7 @@ button {
     background-color: var(--brand-color);
     width: 300px;
     font-size: 1.1rem;
+    font-family: var(--font-two);
 }
 
 button:hover {

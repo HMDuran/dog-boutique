@@ -34,9 +34,11 @@ img {
 
 h1 {
     padding-bottom: 10px;
+    font-family: var(--font-one);
+    color: var(--dark-900);
 }
 
-p{
+p {
     padding-bottom: 28px;
 }
 

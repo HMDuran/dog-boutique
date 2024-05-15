@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="card">
-        <img src="/public/assets/img/logo/logov2.svg" alt="Logo">
+        <a href="/apps/views/home/home.php"><img src="/public/assets/img/logo/logov2.svg" alt="logo"></a>
         <h2>Request Password Reset</h2>
 
         <form id="resetForm" action="/api/user/forgot_password.php" method="POST">

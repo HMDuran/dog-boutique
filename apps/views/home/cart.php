@@ -37,6 +37,12 @@
     </div>
 </main>
 
+
+<?php
+    include $_SERVER['DOCUMENT_ROOT'] .  '/components/footer/footer.php';
+?>
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/public/js/homeUser.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>

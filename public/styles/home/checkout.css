@@ -2,11 +2,24 @@ main {
     margin-top: 80px;
 }
 
+.order-container {
+   padding-bottom: 50px;
+}
+
+h3 {
+    font-family: var(--font-two);
+    color: var(--dark-900);
+    font-weight: 600;
+}
+
 table,
 th,
 td {
     border: 1px solid var(--dark-100);
     text-align: center;
+    font-family: var(--font-two);
+    border-left: 0;
+    border-right: 0;
 }
 
 th {
@@ -17,7 +30,8 @@ th {
 
 .payment-method {
     padding-top: 40px;
-    color: var(--dark-700)
+    color: var(--dark-700);
+    font-family: var(--font-two);
 }
 
 .payment-box {
@@ -32,6 +46,7 @@ th {
 
     display: flex;
     gap: 20px;
+    font-family: var(--font-two);
 }
 
 .payment-box .green {
@@ -82,6 +97,7 @@ th {
 
     width: 300px;
     cursor: pointer;
+    font-family: var(--font-two);
 }
 
 #placeOrderBtn:hover {
@@ -95,18 +111,22 @@ th {
 
 .summary h4 {
     color: var(--dark-700);
+    font-family: var(--font-two);
 }
 
 
-.summary p {
+.summary p, user-details p {
     color: var(--dark-700);
+    font-family: var(--font-two);
 }
 
 .total-amount-checkout {
     font-size: 1.5rem;
     font-weight: 600;
+    font-family: var(--font-two);
 }
 
 span {
     font-weight: 700;
+    font-family: var(--font-two);
 }

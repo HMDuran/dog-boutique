@@ -8,7 +8,7 @@ main {
     background-color: var(--light-500);
     background-image: url('/public/assets/img/bg/desktop-bg.svg');
 
-    height: 60vh;
+    height: 70vh;
 
     display: flex;
     align-items: center;
@@ -24,27 +24,56 @@ img {
 
 #productContainer {
     padding: 30px 80px;
+    overflow-x: hidden;
+    white-space: nowrap;
 }
 
 #productContainer h1 {
     text-align: center;
+    font-family: var(--font-one);
+    color: var(--light-900);
+    letter-spacing: 2px;
 }
-
 
 #products {
     display: flex;
-    flex-wrap: wrap;
+    transition: transform 0.3s ease-in-out;
     gap: 40px; 
     padding-top: 30px;
-    justify-content: space-between;
+}
+
+#product-slider {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#products-container {
+    display: flex;
+    gap: 100px;
+    padding-top: 30px;
+    margin-bottom: 30px; 
+    overflow: hidden;
+    height: 400px;
+    flex-grow: 1;
 }
 
 .productCard {
+    display: flex !important;
+    flex-direction: column;
+    height: 310px;
+
+    border-radius: 3px;
+
+    padding: 10px;
     background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+
+    text-decoration: none;
+    color: rgba(0,0,0,.9);
+
+    transition: all .1s linear;
+
+    text-align: center;
 }
 
 .productCard:hover {
@@ -52,54 +81,58 @@ img {
 }
 
 .productCard img {
-   width: 300px;
-   height: 300px;
+   width: 240px;
+   height: 240px;
 }
 
 .productCard h3 {
     margin-top: 10px;
-    font-size: 18px;
-    color: var(--light-900);
+    font-size: 16px;
+    font-family: var(--font-two);
+    color: var(--brand-color);
 }
 
 .productCard p {
     margin-top: 5px;
     font-size: 14px;
-    font-weight: 900;
+    font-family: var(--font-two);
+    color: var(--dark-900);
+    font-weight: 600;
 }
 
-.viewBtnCustom {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 20px;
-    background-color: var(--brand-color);
-    color: var(--light-100);
-    border: none;
-
+.nav-button {
+    color: var(--brand-color);
+    border:none;
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 2rem;
+    font-family: var(--font-two);
     cursor: pointer;
-
-    border-radius: 5px;
+    background-color: var(--light-100);
 }
-
-.viewBtnCustom:hover {
-    background-color: var(--button-hover);
-}
-
 
 .left h2 {
-    font-size: 3rem;
+    font-size: 4rem;
+    font-family: var(--font-one);
 }
 
 
 .left p {
-    margin-top: 20px;
-    font-size: 1.2rem;
+    margin-top: 14px;
+    font-size: 1.3rem;
+    font-family: var(--font-two);
+    line-height: 28px;
+    color: var(--dark-700);
 }
 
-.left button {
+.left button, .right-banner button {
+    display: flex;
+    gap: 10px;
+
     margin-top: 20px;
     font-size: 1.2rem;
-    padding: 10px 30px;
+    font-family: var(--font-two);
+    padding: 10px 20px;
     background-color: var(--brand-color);
     color: var(--light-100);
     border: 1px solid var(--brand-color);
@@ -107,7 +140,12 @@ img {
     cursor: pointer;
 }
 
-.left button:hover {
+.left button img, .right-banner button img {
+    height: 24px;
+    width: 24px;
+}
+
+.left button:hover, .right-banner button:hover {
     background-color: var(--button-hover);
 }
 
@@ -119,3 +157,92 @@ img {
     height: 360px;
 }
 
+.banner-two {
+    display: flex;
+    padding: 30px 88px;
+    gap: 70px;
+    height: 600px;
+}
+
+.banner-two img {
+    width: 468px;
+    height: 484px;
+}
+
+.right-banner {
+    padding: 60px 0;
+}
+
+.right-banner p {
+    font-family: var(--font-two);
+    padding: 10px 0;
+}
+
+.right-banner h2 {
+    font-family: var(--font-one);
+    color: var(--dark-700);
+    font-size: 3rem;
+}
+
+.right-banner .p-one {
+    font-size: 1.6rem;
+    color: var(--light-900);
+}
+
+.right-banner .p-two {
+    font-size: 1.5rem;
+    line-height: 28px;
+    color: var(--dark-700);
+}
+
+.banner-three {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 88px;
+    gap: 70px;
+    height: 385px;
+}
+
+.banner-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 224px;
+    width: 410px;
+    
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--light-700);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all .1s linear;
+}
+
+.banner-card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.banner-card img {
+    width: 145px;
+    height: 192px;
+}
+
+.card-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-right h4 {
+    font-size: 1.2rem;
+    font-family: var(--font-two);
+    color: var(--dark-900);
+    font-weight: 900;
+}
+
+.card-right p {
+    font-size: 0.9rem;
+    font-family: var(--font-two);
+    color: var(--dark-700);
+}

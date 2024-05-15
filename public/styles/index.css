@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Lato';
+    src: url(../assets/fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Anton';
+    src: url(../assets/fonts/Anton-Regular.ttf);
+}
+
 :root {
     /* Brand Color Variable */
     --brand-color: #8C69E9;

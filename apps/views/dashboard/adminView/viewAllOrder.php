@@ -13,7 +13,7 @@
         <th>Order Date</th>
         <th>Order Items</th> 
         <th>Total Amount</th>
-        <th>Status</th>
+        <th class="status">Status</th>
         <th>Action</th>
       </tr>
     </thead>

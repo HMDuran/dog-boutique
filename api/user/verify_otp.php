@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row) {
         $stored_otp = $row['otp'];
         if ($submitted_otp == $stored_otp) {
-            $_SESSION['notifications'][] = array("type" => "success", "message" => "OTP verified successfully. You can now reset your password.");
+            $_SESSION['notifications'][] = array("type" => "success", "message" => "OTP verified successfully.");
             header("Location: /apps/views/auth/resetPassword.php?user_id=$user_id");
             exit();
         } else {

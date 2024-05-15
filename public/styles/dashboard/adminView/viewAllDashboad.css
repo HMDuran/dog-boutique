@@ -4,6 +4,12 @@
     padding: 50px 100px;
 }
 
+h3 {
+    font-family: var(--font-two);
+    color: var(--dark-900);
+    font-weight: 600;
+}
+
 .allContent-section  {
     display: flex;
     gap: 20px;
@@ -14,6 +20,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    font-family: var(--font-two);
 }
 
 .left-side p {
@@ -23,6 +30,7 @@
 .right-side {
     display: flex;
     gap: 20px;
+    font-family: var(--font-two);
 }
 
 .card {

@@ -10,7 +10,7 @@
 
 <main>
     <div class="banner-two">
-            <img src="/public/assets/img/bannerv2.png">
+        <img src="/public/assets/img/bannerv2.png">
     </div>
 
     <div id="productContainer">
@@ -36,6 +36,11 @@
         </div>
     </div>
 </main>
+
+<?php
+    include $_SERVER['DOCUMENT_ROOT'] . '/components/footer/footer.php';
+?>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/public/js/homeUser.js"></script>

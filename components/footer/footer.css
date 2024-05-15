@@ -1,0 +1,68 @@
+@import url('/public/styles/index.css');
+
+footer {
+    background-color: #BAA5F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 30px 88px;
+
+}
+
+footer .logo {
+    width: 274px;
+    padding-bottom: 120px;
+}
+
+.about-us {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about-us h4, .contact-us h4 {
+    font-family: var(--font-one);
+    font-size: 2rem;
+    color: var(--dark-900);
+}
+
+.about-us p, .contact-us .contact-info p {
+    font-family: var(--font-two);
+    color: var(--dark-700);
+    font-size: 1rem;
+    line-height: 24px;
+}
+
+.contact-us {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 30px;
+}
+
+.contact-info img {
+    height: 20px;
+    width: 20px;
+}
+
+.contact-us .location {
+    height: 47px;
+}
+
+.contact-us p {
+    padding-bottom: 5px;
+}
+
+.contact-us .location p {
+    padding-top: 10px;
+    padding-bottom: 0;
+}

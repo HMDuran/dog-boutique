@@ -10,15 +10,19 @@ main {
 }
 
 .banner-two img {
-    width: 1178px;
+    width: 1228px;
 }
 
 #productContainer {
-    padding: 30px 80px;
+    padding: 30px 80px 100px;
 }
 
 #productContainer h1 {
     text-align: center;
+    font-family: var(--font-one);
+    letter-spacing: 2px;
+
+    color: var(--light-900);
 }
 
 #products {
@@ -49,13 +53,16 @@ main {
 .productCard h3 {
     margin-top: 10px;
     font-size: 18px;
-    color: var(--light-900);
+    color: var(--brand-color);
+    font-family: var(--font-two);
 }
 
 .productCard p {
     margin-top: 5px;
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 600;
+    font-family: var(--font-two);
+    color: var(--dark-900);
 }
 
 .viewBtn {
@@ -65,6 +72,7 @@ main {
     border: 1px solid var(--brand-color);
     border-radius: 8px;
     cursor: pointer;
+    font-family: var(--font-two);
 }
 
 .viewBtn:hover {
@@ -81,6 +89,7 @@ a {
 .btns {
     display: flex;
     justify-content: space-between;
+    font-family: var(--font-two);
 }
 
 .addToCartCardBtn img {
@@ -114,18 +123,26 @@ a {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
+.details h1 {
+    font-family: var(--font-one);
+    color: var(--brand-color);
+}
+
 .details p {
     margin-top: 10px;
     font-size: 16px;
-    color: var(--dark-900);
+    color: var(--dark-700);
+    font-family: var(--font-two);
 }
 
 .details .price {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .details span {
     font-weight: 600;
+    font-family: var(--font-two);
+    color: var(--dark-700);
 }
 
 .form-group {

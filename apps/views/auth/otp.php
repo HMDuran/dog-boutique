@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="card">
-        <img src="/public/assets/img/logo/logov2.svg" alt="logo">
+    <a href="/apps/views/home/home.php"><img src="/public/assets/img/logo/logov2.svg" alt="logo"></a>
         <h1>One-Time Password (OTP) Verification</h1>
         <p>Please enter the One-Time Password (OTP) sent to your email to proceed.</p>
 

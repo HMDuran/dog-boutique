@@ -1,6 +1,5 @@
 @import url('../index.css');
 
-
 main {
     background-color: var(--light-200);
     background-image: url('../../assets/img/bg/desktop-bg.svg');
@@ -25,11 +24,13 @@ main {
     color: var(--dark-900);
     margin-top: 8px;
     font-size: 1.2rem;
+    font-family: var(--font-two);
 }
 
 .text .emphasize {
    font-weight: 600;
-   font-size: 2rem;
+   font-size: 2.3rem;
+   font-family: var(--font-one);
 }
 
 hr {
@@ -48,6 +49,7 @@ hr {
     padding: 10px 20px;
     font-size: 1.1rem;
     width: 360px;
+    font-family: var(--font-two);
 }
 
 .continue-btn:hover {

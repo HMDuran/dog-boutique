@@ -18,8 +18,8 @@ function fetchProducts() {
                         "<td class='align-middle'>" + product.stock + "</td>" +
                         "<td class='align-middle'>₱ " + product.price + "</td>" +
                         "<td class='actions'>" +
-                        "<button onclick='editProduct(" + product.id + ")'>Edit</button>" +
-                        "<button onclick='deleteProduct(" + product.id + ")'>Delete</button>" +
+                        "<button onclick='editProduct(" + product.id + ")'><img src='/public/assets/img/icons/edit.png'></button>" +
+                        "<button onclick='deleteProduct(" + product.id + ")'><img src='/public/assets/img/icons/trash-2.png'></button>" +
                         "</td>" +
                         "</tr>";
                     $("#productTable tbody").append(row);
@@ -218,8 +218,8 @@ function fetchCategories() {
                         "<td class='align-middle'>" + count + "</td>" +
                         "<td class='cat_name align-middle'>" + category.name + "</td>" +
                         "<td class='actions'>" +
-                        "<button onclick='editCategory(" + category.id + ")'>Edit</button>" +
-                        "<button  onclick='deleteCategory(" + category.id + ")'>Delete</button>" +
+                        "<button onclick='editCategory(" + category.id + ")'><img src='/public/assets/img/icons/edit.png'></button></button>" +
+                        "<button  onclick='deleteCategory(" + category.id + ")'><img src='/public/assets/img/icons/trash-2.png'></button>" +
                         "</td>" +
                         "</tr>";
                     $("#categoryTableBody").append(row);
@@ -338,8 +338,8 @@ function fetchOrders() {
                         "<td class='align-middle'>" + order.total_amount + "</td>" +
                         "<td class='align-middle'><span class='" + statusClass + "'>" + order.status + "</span></td>" +
                         "<td class='actions align-middle'>" +
-                            "<button onclick='editOrder(" + order.id + ")'>Edit</button>" +
-                            "<button onclick='deleteOrder(" + order.id + ")'>Delete</button>" +
+                            "<button onclick='editOrder(" + order.id + ")'><img src='/public/assets/img/icons/edit.png'></button></button>" +
+                            "<button onclick='deleteOrder(" + order.id + ")'><img src='/public/assets/img/icons/trash-2.png'></button>" +
                         "</td>" +
                         "</tr>";
                     $("#orderTable").append(row);

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href='/components/footer/footer.css'>
 
 <footer>
-    <img class="logo" src="/public/assets/img/logo/logov2.svg" alt="">
+    <img class="logo" src="/public/assets/img/logo/logo.svg" alt="">
     <div class="about-us">
         <h4>About Us</h4>
         <p>At our boutique, we blend high-quality products, affordability, 

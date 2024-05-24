@@ -21,8 +21,7 @@ main {
     text-align: center;
     font-family: var(--font-one);
     letter-spacing: 2px;
-
-    color: var(--light-900);
+    color: var(--dark-700);
 }
 
 #products {

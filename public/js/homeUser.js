@@ -178,10 +178,10 @@ $(document).ready(function() {
                                     "</span>" +
                                 "</div>" +
                             "</td>" +
-                            "<td>₱" + cartItem.price + "</td>" +
-                            "<td class='totalPrice'>₱" + cartItem.total_amount.toFixed(2)  + "</td>" +
+                            "<td>₱ " + cartItem.price + "</td>" +
+                            "<td class='totalPrice'>₱ " + cartItem.total_amount.toFixed(2)  + "</td>" +
                             "<td>" + 
-                                "<button class='btn btn-danger btn-sm deleteCartItemBtn' data-cart-item-id='" + cartItem.id + "'>Delete</button>" +
+                                "<button class='btn btn-danger btn-sm deleteCartItemBtn' data-cart-item-id='" + cartItem.id + "'><img src='/public/assets/img/icons/trash-2.png' /></button>" +
                             "</td>" +
                             "</tr>";
 

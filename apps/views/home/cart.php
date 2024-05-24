@@ -1,4 +1,5 @@
 <title>Cart</title>
+<link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="/public/styles/home/cart.css"></link>
 
@@ -33,6 +34,7 @@
                 <h3>Total Amount:   <span id="price"> ₱ 0.00</span></h3>
             </div>
             <button id="checkout">Checkout</button>
+            
         </div>
     </div>
 </main>

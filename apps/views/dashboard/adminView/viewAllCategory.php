@@ -1,5 +1,5 @@
 <link rel=stylesheet href="/public/styles/dashboard/adminView/viewAllCategory.css"></link>
- 
+
 <div class="container">
 <?php 
     session_start();

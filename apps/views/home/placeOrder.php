@@ -1,4 +1,5 @@
 <title>Ordered Place</title>
+<link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico">
 <link rel="stylesheet" href="/public/styles/home/placeOrder.css">
 
 <main>

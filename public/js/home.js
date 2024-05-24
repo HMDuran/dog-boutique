@@ -49,6 +49,17 @@ $(document).ready(function() {
             rightButton.disabled = currentIndex >= Math.ceil(productsCount - productContainer.clientWidth / productWidth);
         }
 
+        function autoScroll() {
+            autoScrollInterval = setInterval(() => {
+                if (currentIndex < Math.ceil(productsCount - productContainer.clientWidth / productWidth)) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateSlider();
+            }, 3000); 
+        }
+
         leftButton.addEventListener('click', () => {
             if (currentIndex > 0) {
                 currentIndex--;
@@ -62,7 +73,20 @@ $(document).ready(function() {
                 updateSlider();
             }
         });
+
         updateArrowStates();
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    autoScroll();
+                } else {
+                    clearInterval(autoScrollInterval);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(productContainer);
     }
 
     function disableArrows() {

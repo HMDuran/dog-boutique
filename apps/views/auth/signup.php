@@ -1,10 +1,13 @@
 <title>Sign Up</title>
+
 <link rel="stylesheet" href="/public/styles/auth/signup.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico">
+
 <main>
     <div class="container">
          <a href="/apps/views/home/home.php">
-            <img src="/public/assets/img/logo/logov2.svg" alt="logo">
+            <img src="/public/assets/img/logo/logo.svg" alt="logo">
         </a>    
         <h1>Create Account</h1>
         <p>Already have an account? <a href="../auth/login.php">Login</a></p>

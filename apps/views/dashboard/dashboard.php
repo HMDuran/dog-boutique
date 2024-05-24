@@ -1,7 +1,9 @@
 <title>Dashboard</title>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css">
 <link rel="stylesheet" href="/public/styles/dashboard/dashboard.css"></link>
+<link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico">
 
 <main>
     <div class="container-dashboard">

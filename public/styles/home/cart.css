@@ -97,7 +97,7 @@ input-group-btn button:active, button:focus {
     border: 1px solid var(--dark-100);
     border-radius: 8px;
 
-    padding: 5px 20px;
+    padding: 5px;
     font-family: var(--font-two);
 }
 
@@ -136,10 +136,15 @@ input-group-btn button:active, button:focus {
 
     cursor: pointer;
     font-family: var(--font-two);
-}
+ }
 
 #totalPrice button:hover {
     background-color: var(--button-hover);
     border: 1px solid var(--dark-100);
     color: var(--light-100);
+}
+
+#checkout img {
+    height: 24px;
+    width: 24px;
 }

@@ -1,11 +1,11 @@
+<title>Reset Password</title>
+<link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico">
 <link rel="stylesheet" href="/public/styles/auth/resetPassword.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-
-<title>Reset Password</title>
 
 <div class="container">
 <?php 
@@ -21,7 +21,7 @@
 ?>
     <div class="card">
         <a href="/apps/views/home/home.php">
-            <img src="/public/assets/img/logo/logov2.svg" alt="logo">
+            <img src="/public/assets/img/logo/logo.svg" alt="logo">
         </a>
         <h1>Reset Your Password</h1>
         

@@ -1,5 +1,7 @@
-<title>Home</title>
+<title>My Best Friend Pet Boutique</title>
+
 <link rel="stylesheet" href='/public/styles/home/home.css'>
+<link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico">
 
 <?php
       include $_SERVER['DOCUMENT_ROOT'] . '/components/navbar/navbar.php';

@@ -16,6 +16,10 @@
 
     <div id="productContainer">
         <h1>Products</h1>
+        
+        <div id="filterButtons">
+            <button class="filterBtn active" data-category="all">All</button>
+        </div>
 
         <div id="products"></div>
     </div>

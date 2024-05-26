@@ -9,10 +9,9 @@
     $db = $database->getConnection();
 
     $product = new Product($db);
-    
     $category = isset($_GET['category']) ? $_GET['category'] : 'all';
 
-    $stmt = $product->read();
+    $stmt = $product->read_filter($category);
     $num = $stmt->rowCount();
 
     if ($num > 0) {

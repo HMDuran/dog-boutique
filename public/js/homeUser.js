@@ -1,8 +1,9 @@
 $(document).ready(function() {
-    function fetchAndDisplayProducts() {
+    function fetchAndDisplayProducts(category = 'all') {
         $.ajax({
-            url: "/api/product/read.php",
+            url: "/api/product/filter.php",
             type: "GET",
+            data: { category: category },
             dataType: "json",
             success: function(response) {
                 if (response.data.length > 0) {
@@ -39,7 +40,36 @@ $(document).ready(function() {
             }
         });
     }
-    
+
+    function generateCategoryButtons() {
+        $.ajax({
+            url: "/api/product/filter.php",
+            type: "GET",
+            dataType: "json",
+            success: function(response) {
+                if (response.data.length > 0) {
+                    let categories = new Set();
+                    $.each(response.data, function(index, product) {
+                        categories.add(product.category_name);
+                    });
+
+                    categories.forEach(function(category) {
+                        var button = "<button class='filterBtn' data-category='" + category + "'>" + category + "</button>";
+                        $("#filterButtons").append(button);
+                    });
+
+                    $("#filterButtons").on("click", ".filterBtn", function() {
+                        var category = $(this).data("category");
+                        fetchAndDisplayProducts(category);
+
+                        $(".filterBtn").removeClass("active");
+                        $(this).addClass("active");
+                    });
+                }
+            }
+        });
+    }
+
     function fetchProductDetails(productId) {
         $.ajax({
             url: "/api/product/read_one.php?id=" + productId,
@@ -487,6 +517,7 @@ $(document).ready(function() {
     fetchCheckoutDetails();
     updateCartCount(); 
     getCartCount();
+    generateCategoryButtons();
     fetchAndDisplayProducts();
     fetchCartItems();
 });

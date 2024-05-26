@@ -30,6 +30,30 @@
             return $stmt;
         }
 
+        function read_filter($category) {
+            if ($category === "all") {
+                $query = "SELECT p.*, c.name AS category_name
+                    FROM {$this->table_name} p
+                        LEFT JOIN categories c 
+                            ON p.categoryid = c.id";
+            } else {
+                $query = "SELECT p.*, c.name AS category_name
+                    FROM {$this->table_name} p
+                        LEFT JOIN categories c 
+                            ON p.categoryid = c.id
+                    WHERE c.name = :category";
+            }
+
+                $stmt = $this->conn->prepare($query);
+                if ($category !== 'all') {
+                    $stmt->bindParam(':category', $category);
+                }
+
+                $stmt->execute();
+
+                return $stmt;
+        }
+
         function readOne() {
             $query = "SELECT
             c.name AS category_name, 

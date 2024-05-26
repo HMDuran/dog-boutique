@@ -24,6 +24,37 @@ main {
     color: var(--dark-700);
 }
 
+#filterButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+#filterButtons button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--brand-color);
+    color: black;
+}
+
+.filterBtn.active {
+    background-color: var(--brand-color) !important; 
+    color: white !important;
+}
+
+#filterButtons button:hover {
+    background-color: var(--brand-color);
+    color: white;
+}
+
 #products {
     display: flex;
     flex-wrap: wrap;

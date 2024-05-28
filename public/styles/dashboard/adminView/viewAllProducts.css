@@ -59,11 +59,15 @@ th {
 }
 
 .product_name {
-    width: 140px;
+    width: 180px;
 }
 
 .category_name {
     width: 80px;
+}
+
+.image_product {
+    width: 60px;
 }
 
 .image_p img {

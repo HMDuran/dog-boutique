@@ -10,8 +10,6 @@
 
     $product = new Product($db);
     
-    $category = isset($_GET['category']) ? $_GET['category'] : 'all';
-
     $stmt = $product->read();
     $num = $stmt->rowCount();
 

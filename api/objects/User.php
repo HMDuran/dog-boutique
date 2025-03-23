@@ -41,7 +41,6 @@ class User {
             unset($row['password']);
             return $row;
         }
-    
         return false; 
     }
 
@@ -64,30 +63,43 @@ class User {
             unset($row['password']);
             return $row;
         }
-
         return [];
     }
-
+ 
     function create() {
-        if (!preg_match('/^[A-Za-z]+$/', $this->first_name) || 
-           !preg_match('/^[A-Za-z]+$/', $this->last_name)) {
-            return false;
+        $errors = [];
+    
+        $query = "SELECT id FROM {$this->table_name} WHERE email = :email LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->execute();
+    
+        if ($stmt->rowCount() > 0) {
+            $errors[] = "Email already exists. Please use a different email.";
         }
-
+    
+        if (!preg_match('/^[A-Za-z]+$/', $this->first_name)) {
+            $errors[] = "First name must contain only letters.";
+        }
+    
+        if (!preg_match('/^[A-Za-z]+$/', $this->last_name)) {
+            $errors[] = "Last name must contain only letters.";
+        }
+    
         if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            return false;
+            $errors[] = "Invalid email format.";
         }
-
-        if(strlen($this->password) < 6 || strlen($this->password) > 20) {
-            return false;
-        }
-
+    
         if (!preg_match('/^[0-9]+$/', $this->phone_number)) {
-            return false;
+            $errors[] = "Phone number must contain only numbers.";
         }
-
+    
+        if (!empty($errors)) {
+            return $errors;
+        }
+    
         $hashed_password = password_hash($this->password, PASSWORD_DEFAULT);
-
+    
         $query = "INSERT INTO {$this->table_name}
             SET
                 first_name=:first_name,
@@ -98,9 +110,9 @@ class User {
                 delivery_address=:delivery_address,
                 role=:role,
                 created_at=:created_at";
-        
+    
         $stmt = $this->conn->prepare($query);
-
+    
         $this->first_name = htmlspecialchars(strip_tags($this->first_name));
         $this->last_name = htmlspecialchars(strip_tags($this->last_name));
         $this->email = htmlspecialchars(strip_tags($this->email));
@@ -108,7 +120,7 @@ class User {
         $this->delivery_address = htmlspecialchars(strip_tags($this->delivery_address));
         $this->role = "customer";
         $this->created_at = htmlspecialchars(strip_tags($this->created_at));
-
+    
         $stmt->bindParam(":first_name", $this->first_name);
         $stmt->bindParam(":last_name", $this->last_name);
         $stmt->bindParam(":email", $this->email);
@@ -117,10 +129,11 @@ class User {
         $stmt->bindParam(":delivery_address", $this->delivery_address);
         $stmt->bindParam(":role", $this->role);
         $stmt->bindParam(":created_at", $this->created_at);
+    
         if ($stmt->execute()) {
             return true;
         }
         return false;
     }
-}   
+}
 ?>

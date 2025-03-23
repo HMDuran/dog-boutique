@@ -1,6 +1,24 @@
 <title>OTP Verification</title>
 <link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico">
 <link rel="stylesheet" href="/public/styles/auth/otp.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+
+<?php
+session_start();
+if (isset($_SESSION['notifications'])) {
+    echo "<script>
+        $(document).ready(function() {";
+    foreach ($_SESSION['notifications'] as $notification) {
+        echo "$.notify('{$notification['message']}', { className: '{$notification['type']}', position: 'top right' });";
+    }
+    echo "});
+    </script>";
+    unset($_SESSION['notifications']);
+}
+?>
 
 <div class="container">
     <div class="card">

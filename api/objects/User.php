@@ -22,26 +22,27 @@ class User {
         if (!isset($this->email) || !isset($this->password)) {
             return false;
         }
-
-        $query = "SELECT id, email, password, role FROM {$this->table_name} WHERE email = :email LIMIT 0,1";
-
+    
+        $query = "SELECT id, email, password, role FROM {$this->table_name} WHERE email = :email LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':email', $this->email);
         $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if (password_verify($this->password, $row['password'])) {
-                $this->id = $row['id'];
-                $this->role = $row['role'];
-                
-                unset($row['password']);
-
-                return $row;
-            }
+    
+        if ($stmt->rowCount() === 0) {
+            return "no_account";
         }
-        return false;
+    
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if (password_verify($this->password, $row['password'])) {
+            $this->id = $row['id'];
+            $this->role = $row['role'];
+            
+            unset($row['password']);
+            return $row;
+        }
+    
+        return false; 
     }
 
     function getUser($id = null) {

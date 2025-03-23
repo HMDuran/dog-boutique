@@ -7,9 +7,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 
+<?php 
+session_start();
+?>
+
 <main>
 <?php 
-    session_start();
     if (isset($_SESSION['notifications']) && is_array($_SESSION['notifications'])) {
         foreach ($_SESSION['notifications'] as $notification) {
             $type = $notification['type'];
@@ -52,5 +55,31 @@ const password = document.querySelector('#password');
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
     password.setAttribute('type', type);
     this.classList.toggle('fa-eye-slash');
+});
+
+$(document).ready(function() {
+    $("#loginForm").submit(function(event) {
+        event.preventDefault();
+
+        var form = $(this);
+        var actionUrl = form.attr('action'); 
+
+        $.ajax({
+            type: "POST",
+            url: actionUrl,
+            data: form.serialize(),
+            dataType: "json",
+            success: function(response) {
+                if (response.status === "error") {
+                    $.notify(response.message, "error");
+                } else if (response.redirect) {
+                    window.location.href = response.redirect; 
+                }
+            },
+            error: function() {
+                $.notify("Something went wrong. Please try again.", "error");
+            }
+        });
+    });
 });
 </script>

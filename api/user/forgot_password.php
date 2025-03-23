@@ -25,18 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
-            // Check if there's an existing OTP for the user
             $stmt_otp = $pdo->prepare("SELECT id FROM password_resets WHERE user_id = ?");
             $stmt_otp->execute([$user['id']]);
             $existing_otp = $stmt_otp->fetch(PDO::FETCH_ASSOC);
 
             if ($existing_otp) {
-                // Update existing OTP
                 $otp = generateOTP();
                 $updateStmt = $pdo->prepare("UPDATE password_resets SET otp = ? WHERE user_id = ?");
                 $updateStmt->execute([$otp, $user['id']]);
             } else {
-                // Insert new OTP
                 $otp = generateOTP();
                 $insertStmt = $pdo->prepare("INSERT INTO password_resets (user_id, otp) VALUES (?, ?)");
                 $insertStmt->execute([$user['id'], $otp]);
@@ -68,7 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Error: {$mail->ErrorInfo}";
             }
         } else {
-            echo "Error: User not found.";
+            $_SESSION['error'] = "No user found with that email.";
+            header("Location: ../../../../apps/views/auth/forgotPassword.php");
+            exit();
+
         }
     } else {
         echo "Error: Email field is empty.";

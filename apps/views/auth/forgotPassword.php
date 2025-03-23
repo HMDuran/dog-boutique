@@ -1,6 +1,22 @@
 <title>Password Reset Request</title>
 <link rel="stylesheet" href="/public/styles/auth/requestReset.css">
 <link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+
+<?php
+session_start();
+if (isset($_SESSION['error'])) {
+    echo "<script>
+        $(document).ready(function() {
+            $.notify('{$_SESSION['error']}', { className: 'error', position: 'top right' });
+        });
+    </script>";
+    unset($_SESSION['error']); 
+}
+?>
 
 <div class="container">
     <div class="card">

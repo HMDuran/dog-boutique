@@ -5,14 +5,15 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-
-    height: 100vh;
+    min-height: 100vh;
+    overflow-x: auto;
 }
 
 h4 {
     font-family: var(--font-two);
     color: var(--dark-900);
     font-weight: 600;
+    text-align: center;
 }
 
 .btn {
@@ -22,65 +23,35 @@ h4 {
     padding: 10px 20px;
     background-color: var(--brand-color);
     font-weight: 600;
-
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     font-family: var(--font-two);
 }
 
-table,
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+    display: block;
+}
+
 th,
 td {
     border: 1px solid var(--dark-100);
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-family: var(--font-two);
-    border-left: 0;
-    border-right: 0;
+    padding: 10px;
 }
 
 th {
     background-color: var(--brand-color);
     color: var(--light-100);
-    padding: 10px;
-}
-
-.description_p {
-    width: 430px;
-    padding: 0 8px;
-    text-align: left;
-}
-
-.number {
-    width: 10px;
-}
-
-.same {
-    width: 60px;
-}
-
-.product_name {
-    width: 180px;
-}
-
-.category_name {
-    width: 80px;
-}
-
-.image_product {
-    width: 60px;
 }
 
 .image_p img {
     height: 60px;
     width: 60px;
-}
-
-.logo {
-    height: 60px;
-}
-
-.actions {
-    width: 90px;
 }
 
 .actions button {
@@ -99,7 +70,60 @@ th {
     cursor: pointer;
 }
 
-.flex-this {
-    display: flex;
-    justify-content: space-between;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .image_p img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .btn {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .description_p {
+        max-width: 250px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    th,
+    td {
+        font-size: 0.75rem;
+        padding: 6px;
+    }
+
+    .btn {
+        padding: 6px;
+        font-size: 0.85rem;
+        max-width: 100%;
+    }
+
+    .description_p {
+        max-width: 200px;
+    }
 }

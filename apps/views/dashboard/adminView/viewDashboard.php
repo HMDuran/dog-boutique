@@ -1,4 +1,4 @@
-<link rel=stylesheet href="/public/styles/dashboard/adminView/viewAllDashboad.css"></link>
+<link rel=stylesheet href="/public/styles/dashboard/adminView/viewAllDashboard.css"></link>
  
 <div class="container">
   <h3>Dashboard</h3>

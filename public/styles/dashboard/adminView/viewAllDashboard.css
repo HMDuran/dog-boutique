@@ -1,0 +1,93 @@
+@import url('../../index.css');
+
+.container {
+    padding: 50px 20px; 
+}
+
+h3 {
+    font-family: var(--font-two);
+    color: var(--dark-900);
+    font-weight: 600;
+    text-align: center;
+}
+
+.allContent-section {
+    display: flex;
+    gap: 20px;
+    padding-top: 90px;
+    flex-wrap: wrap;
+}
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: var(--font-two);
+    flex: 1;
+    min-width: 250px;
+}
+
+.left-card {
+    background-color: #8C69E9;
+    height: 80px;
+    width: 100%; 
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.left-card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.card {
+    background-color: #8C69E9;
+    height: 180px;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(47, 4, 45, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 20px rgba(22, 21, 21, 0.2);
+}
+
+@media (max-width: 768px) {
+    .allContent-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-card {
+        height: 70px;
+        padding: 15px;
+    }
+
+    .card {
+        height: 120px;
+    }
+}

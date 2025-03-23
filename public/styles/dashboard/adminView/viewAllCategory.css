@@ -14,6 +14,7 @@ h4 {
     font-family: var(--font-two);
     color: var(--dark-900);
     font-weight: 600;
+    text-align: center;
 }
 
 .btn {

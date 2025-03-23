@@ -5,22 +5,37 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-
     height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 h3 {
     font-family: var(--font-two);
     color: var(--dark-900);
     font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
-table, th, td{
+/* Responsive Table */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 600px; 
+    border-collapse: collapse;
+}
+
+th, td {
     border: 1px solid var(--dark-100);
     text-align: center;
     font-size: 0.8rem;
     font-family: var(--font-two);
-
+    padding: 10px;
     border-left: 0;
     border-right: 0;
 }
@@ -28,7 +43,7 @@ table, th, td{
 th {
     background-color: var(--brand-color);
     color: var(--light-100);
-    padding: 10px;
+    padding: 12px;
 }
 
 .bold-label {
@@ -36,6 +51,10 @@ th {
 }
 
 .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
     width: 106px;
 }
 
@@ -46,13 +65,21 @@ th {
     padding: 5px;
     background-color: var(--brand-color);
     font-weight: 600;
-    margin: 2px;
     font-family: var(--font-two);
+    flex: 1; 
+    min-width: 40px;
 }
 
 .actions button:hover {
     background-color: var(--button-hover);
     cursor: pointer;
+}
+
+.modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .modal-footer button {
@@ -61,36 +88,80 @@ th {
     border: 1px solid var(--brand-color);
     border-radius: 8px;
     cursor: pointer;
+    padding: 8px 12px;
+    font-size: 1rem;
 }
 
+/* Status Labels */
 .status-pending, 
 .status-shipped, 
 .status-delivered, 
 .status-processing {
     font-weight: 600;
     font-family: var(--font-two);
-
     color: white;
     padding: 0.3em 0.3em;
     border-radius: 0.2em;
     cursor: default;
     text-transform: capitalize;
     min-width: 70px;
-    display: inline-block
+    display: inline-block;
 }
 
-.status-pending {
-    background-color: rgb(243, 166, 56);
+.status-pending { background-color: rgb(243, 166, 56); }
+.status-shipped { background-color: rgb(30, 145, 207); }
+.status-delivered { background-color: rgb(76, 182, 76); }
+.status-processing { background-color: rgb(84, 183, 211); }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 5px;
+        gap: 15px;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    th, td {
+        font-size: 0.75rem;
+        padding: 8px;
+    }
+
+    .actions {
+        width: auto;
+        justify-content: center;
+    }
+
+    .actions button {
+        padding: 4px 6px;
+        font-size: 0.75rem;
+    }
+
+    .modal-footer button {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
 }
 
-.status-shipped {
-    background-color: rgb(30, 145, 207);
-}
+@media (max-width: 480px) {
+    h3 {
+        font-size: 1.1rem;
+    }
 
-.status-delivered {
-    background-color: rgb(76, 182, 76);
-}
+    th, td {
+        font-size: 0.7rem;
+        padding: 6px;
+    }
 
-.status-processing {
-    background-color: rgb(84, 183, 211);
+    .actions button {
+        padding: 3px 5px;
+        font-size: 0.7rem;
+    }
+
+    .modal-footer button {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
 }

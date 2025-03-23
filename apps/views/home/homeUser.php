@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header("Location: /apps/views/auth/login.php");
+    exit();
+}
+
+header("Cache-Control: no-cache, no-store, must-revalidate"); 
+header("Pragma: no-cache"); 
+header("Expires: 0"); 
+?>
+
 <title>Home</title>
 <link rel="icon" type="image/x-icon" href="/public/assets/favicon/favicon.ico">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

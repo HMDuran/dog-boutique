@@ -43,14 +43,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
                 $mail->SMTPDebug = 0;
                 $mail->isSMTP();
-                $mail->Host       = 'smtp.gmail.com';
+                $mail->Host       = $_ENV['SMTP_HOST'];
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'dogboutique.mybestfriend@gmail.com'; 
-                $mail->Password   = 'jidndtixvtagxyvu';     
-                $mail->SMTPSecure = 'tls';
-                $mail->Port       = 587;           
+                $mail->Username   = $_ENV['SMTP_USERNAME'];
+                $mail->Password   = $_ENV['SMTP_PASSWORD'];
+                $mail->SMTPSecure = $_ENV['SMTP_SECURE'];
+                $mail->Port       = $_ENV['SMTP_PORT'];        
 
-                $mail->setFrom('dogboutique.mybestfriend@gmail.com', 'dog-boutique');
+                $mail->setFrom($_ENV['SMTP_USERNAME'], 'dog-boutique');
                 $mail->addAddress($email); 
 
                 $mail->isHTML(true);

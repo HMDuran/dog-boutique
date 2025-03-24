@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2024 at 05:52 PM
+-- Generation Time: Mar 24, 2025 at 01:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `carts` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `quantity` int(11) DEFAULT NULL,
   `total_amount` decimal(10,2) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -69,8 +70,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'collars & leashes'),
-(2, 'Apparel');
+(2, 'Apparel'),
+(4, 'Bowl'),
+(6, 'Collars and Leashes'),
+(7, 'Beds'),
+(9, 'Toys'),
+(38, 'Gromming Kit');
 
 -- --------------------------------------------------------
 
@@ -87,6 +92,19 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `status`, `total_amount`, `created_at`, `updated_at`) VALUES
+(587800, 16, 'shipped', 7464.00, '2024-05-07 02:20:24', '2024-05-07 11:53:55'),
+(587801, 16, 'processing', 1964.00, '2024-05-07 02:21:07', '2024-05-08 11:47:40'),
+(587805, 13, 'pending', 1964.00, '2024-05-08 05:45:13', '2024-05-14 13:20:42'),
+(587808, 16, 'delivered', 2464.00, '2024-07-05 21:22:57', '2024-07-06 03:24:01'),
+(587809, 16, 'pending', 2984.00, '2024-07-05 21:30:49', '2024-07-05 21:30:49'),
+(587811, 16, 'pending', 154.00, '2024-07-05 21:50:25', '2024-07-05 21:50:25'),
+(587812, 16, 'pending', 564.00, '2024-07-05 21:57:30', '2024-07-05 21:57:30');
+
 -- --------------------------------------------------------
 
 --
@@ -98,9 +116,37 @@ CREATE TABLE `order_items` (
   `order_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
+  `total_price` decimal(10,2) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `total_price`, `created_at`, `updated_at`) VALUES
+(75, 587800, 53, 5, 1400.00, '2024-05-07 02:20:24', '2024-05-07 02:20:24'),
+(76, 587800, 105, 5, 6000.00, '2024-05-07 02:20:24', '2024-05-07 02:20:24'),
+(77, 587801, 54, 5, 1900.00, '2024-05-07 02:21:07', '2024-05-07 02:21:07'),
+(82, 587805, 54, 5, 1900.00, '2024-05-08 05:45:13', '2024-05-08 05:45:13'),
+(85, 587808, 52, 4, 2400.00, '2024-07-05 21:22:57', '2024-07-05 21:22:57'),
+(86, 587809, 52, 3, 1800.00, '2024-07-05 21:30:49', '2024-07-05 21:30:49'),
+(87, 587809, 53, 4, 1120.00, '2024-07-05 21:30:49', '2024-07-05 21:30:49'),
+(89, 587811, 160, 2, 90.00, '2024-07-05 21:50:25', '2024-07-05 21:50:25'),
+(90, 587812, 51, 1, 500.00, '2024-07-05 21:57:30', '2024-07-05 21:57:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `otp` varchar(6) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -126,7 +172,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `image`, `description`, `price`, `stock`, `categoryid`, `created_at`, `updated_at`) VALUES
-(48, 'Orson Parsons', '../../uploads/hanah.jpg', 'Ad fugiat dolor cons', 497.00, 14, 2, '2024-04-16 07:15:59', '2024-04-16 13:15:59');
+(51, 'Warm Clothes', '../../uploads/warm-clothes.jpg', 'Lightweight and warm vest for small to medium-sized dogs', 500.00, 99, 2, '2024-04-18 05:49:03', '2024-07-06 03:57:30'),
+(52, 'Leather Dog Collar	', '../../uploads/leather-collar.jpg', 'Handcrafted leather collar with brass hardware	', 600.00, 93, 6, '2024-04-18 05:51:35', '2024-07-06 03:30:49'),
+(53, 'Rubber Dumbbell Toy', '../../uploads/dumbbell-dog-toy.jpg', 'Rubber dumbbell-shaped toy for fetching and chewing	', 280.00, 46, 9, '2024-04-18 05:54:30', '2024-07-06 03:30:49'),
+(54, 'Slicker Brush ', '../../uploads/slicker-brush.jpg', 'Keep your dog coat smooth, shiny, and tangle-free. ', 380.00, 90, 38, '2024-04-18 05:59:20', '2024-05-08 11:45:13'),
+(105, 'Grey Donut Bed', '../../uploads/greyDonutBed.jpg', 'Luxuriously soft bed for small to medium-sized dogs', 1200.00, 85, 7, '2024-04-28 08:25:03', '2024-05-07 16:00:30'),
+(156, 'Stainless Steel Bowl', '../../uploads/dog-bowl-stainless-steel.jpg', 'Durable bowl suitable for both food and water', 350.00, 100, 4, '2024-05-17 05:47:22', '2024-05-17 11:47:22'),
+(160, 'yema', '../../uploads/Tri-fold-Pet-Stroller-Detachable-Carrier-Gray.jpg', 'aa', 45.00, 48, 9, '2024-07-05 21:48:50', '2024-07-06 03:50:25');
 
 -- --------------------------------------------------------
 
@@ -140,7 +192,7 @@ CREATE TABLE `users` (
   `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `phone_number` int(11) NOT NULL,
+  `phone_number` varchar(255) NOT NULL,
   `delivery_address` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT 'customer',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -152,19 +204,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone_number`, `delivery_address`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Madeson', 'Clay', 'kaxuxavi@mailinator.com', '$2y$10$u7758jEA7/StmMjPAyWoyebZ4ueGJdmuJTY6sNT9WdNglPj8cZ.W.', 0, 'Aliquid qui amet ad', 'customer', '0000-00-00 00:00:00', '2024-04-08 06:21:29'),
-(2, 'Kuame', 'Pace', 'xuwiqelyzi@mailinator.com', '$2y$10$T9pHGhHQDnFRlNzEuxBo/OBDMA1K3hAnN8.46fcwBPpyy7ISjZF2y', 0, 'Numquam unde minus v', 'customer', '0000-00-00 00:00:00', '2024-04-08 06:24:07'),
-(3, 'Dara', 'Armstrong', 'fewyf@mailinator.com', '$2y$10$lO5ghje/rDv0JFV7ef2Ecehy02DGEWtSfr/Zh2yIusrwt.AbilEyq', 0, 'Est reiciendis aliqu', 'customer', '0000-00-00 00:00:00', '2024-04-08 06:24:23'),
-(4, 'Abra', 'Hutchinson', 'lolapuhal@mailinator.com', '$2y$10$vy02qX/G/KDC2pBGO6BdU.oByCBZd4p5aJcQGlV3kps4IplkGQVMW', 0, 'Nihil fugiat ipsa v', 'customer', '0000-00-00 00:00:00', '2024-04-08 06:27:04'),
-(5, 'Armand', 'Beasley', 'watiqa@mailinator.com', '$2y$10$NshL93e3iETBZpJFOFAsb.ZwgZ/resnUSN8znXT5oz3nclQuIWVxe', 0, 'Corporis in mollitia', 'customer', '0000-00-00 00:00:00', '2024-04-08 06:28:24'),
-(6, 'Hanah', 'Mae', 'admin@gmail.com', '$2y$10$7nSx7zxY4LL2xe/lNYLBfOVneEZ2Qe4bo4ZyERBja9H.5ZgAtOq1e', 0, NULL, 'admin', '2024-04-08 06:31:38', '2024-04-08 15:39:11'),
-(7, 'Wynne', 'Aguilar', 'kijom@mailinator.com', '$2y$10$Wq9/HipumX/PoE8PXOyZAeDzttfTGqBj8jUlb84uwN55dQFOEpBd6', 0, 'Itaque eum qui et co', 'customer', '0000-00-00 00:00:00', '2024-04-08 06:35:48'),
-(8, 'Aileen', 'Carrillo', 'bihydosa@mailinator.com', '$2y$10$G3Cb/MYaDO4U5WRViZVfAuKS8YlhdCY.q8OPD9ytUP7J3bR/.HNBK', 0, 'Duis sit iusto veni', 'customer', '0000-00-00 00:00:00', '2024-04-08 06:37:11'),
-(9, 'Sandra', 'Allen', 'cycyn@mailinator.com', '$2y$10$9hytnyX1RMAyz8feUXRc1.Q2wM2QJuQJ9iEcDwC/IqWlPBk6Nlyui', 0, 'Culpa quod non ad vi', 'customer', '2024-04-08 00:52:17', '2024-04-08 06:52:17'),
-(10, 'Brenda', 'Ryan', 'gisoxen@mailinator.com', '$2y$10$1ddcmRoP0mM2hdutd5Vbe.YTiJxZe5vyIEOBTyzjGBc.pGdL7IF96', 975238956, 'Culpa reprehenderit ', 'customer', '2024-04-08 01:00:24', '2024-04-08 07:00:24'),
-(11, 'Theodore', 'Sargent', 'zabi@mailinator.com', '$2y$10$tcjsYJxGkuSv2qozwgDBEeskcz1YmeT0jnIfAsgstdwcLoEiLGxzS', 262, 'Et atque nulla nihil', 'customer', '2024-04-08 01:22:17', '2024-04-08 07:22:17'),
-(12, 'Deirdre', 'Beck', 'tiquf@mailinator.com', '$2y$10$OlymUF0ejfWuIN.f.2yqyOTTlTXYMPmvGb79TwRTS19rQeebG3eV6', 488, 'Error fugit volupta', 'customer', '2024-04-08 08:18:36', '2024-04-08 14:18:36'),
-(13, 'Lulu', 'mae', 'lulu@gmail.com', '$2y$10$Y.Vr9s599HSDw6jiorKtN.y1nn8sZJksuxxCt9k7IH2QyhoKNuGvq', 111, 'aa', 'customer', '2024-04-08 09:49:22', '2024-04-08 15:49:22');
+(6, 'Hanah', 'Mae', 'admin@gmail.com', '$2y$10$hZouxrhv7xzpHfe497kobeR.MP4jKmDqHmA3wqHPDq56D4O/VqB1C', '0', NULL, 'admin', '2024-04-08 06:31:38', '2025-03-23 06:37:42');
 
 --
 -- Indexes for dumped tables
@@ -198,7 +238,15 @@ ALTER TABLE `orders`
 -- Indexes for table `order_items`
 --
 ALTER TABLE `order_items`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_order_items_order_id` (`order_id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user_id` (`user_id`);
 
 --
 -- Indexes for table `products`
@@ -220,7 +268,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT for table `cart_items`
@@ -232,31 +280,53 @@ ALTER TABLE `cart_items`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=587813;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+
+--
+-- AUTO_INCREMENT for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD CONSTRAINT `fk_order_items_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
+
+--
+-- Constraints for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

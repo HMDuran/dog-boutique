@@ -9,7 +9,8 @@ It includes **user authentication**, an **admin panel**, and a **password reset 
 ![User Homepage Screenshot](/public/assets/img/sample-screenshots/home-page.jpeg)
 ![Admin Page Screenshot](/public/assets/img/sample-screenshots/admin-page.jpeg)
 ![Login Page Screenshot](/public/assets/img/sample-screenshots/login-page.jpeg)
-![Product View Screenshot](/public/assets/img/sample-screenshots/product-view.png)
+![Uploading product-view.png…]()
+
 
 
 ## **🚀 Features**  

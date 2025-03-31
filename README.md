@@ -9,7 +9,7 @@ It includes **user authentication**, an **admin panel**, and a **password reset 
 ![User Homepage Screenshot](/public/assets/img/sample-screenshots/home-page.jpeg)
 ![Admin Page Screenshot](/public/assets/img/sample-screenshots/admin-page.jpeg)
 ![Login Page Screenshot](/public/assets/img/sample-screenshots/login-page.jpeg)
-![Uploading product-view.png…]()
+![product-view](https://github.com/user-attachments/assets/af2cf581-6df5-449b-923d-f3949a3ac7da)
 
 
 

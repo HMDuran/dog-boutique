@@ -1,7 +1,10 @@
-# **Dog Boutique - PHP Website**  
+# 🐶 **Dog Boutique - PHP Website**  
 
-A dog boutique website built using **PHP, MySQL, JavaScript (AJAX), CSS, and SQL**, running on **XAMPP**.  
-It includes **user authentication**, an **admin panel**, and a **password reset feature using Gmail SMTP with PHPMailer**.  
+A dog boutique website is built using **PHP, MySQL, JavaScript (AJAX), CSS, and SQL**, running on **XAMPP**. It includes **user authentication**, an **admin panel**, and a **password reset feature using Gmail SMTP with PHPMailer**.  
+
+---
+## 👩‍💻 Development
+This project was developed as part of academic coursework. This project emphasizes practical skills in backend development, secure user workflows, and dynamic front-end behavior using AJAX and PHP logic.
 
 ---
 ## 📸 Preview
